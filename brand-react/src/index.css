@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FAF8F4;
+  --color-charcoal: #1B1B1B;
+  --color-forest: #18352F;
+  --color-sage: #DCE7DF;
+  --color-gold: #C7A56A;
+  --color-gold-light: #E2C99A;
+  --color-border: #E8E3DA;
+  --color-text-muted: #6B6660;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
