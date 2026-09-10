@@ -106,7 +106,7 @@ export default function Footer() {
                 const IconComponent = icons[social.label] || ArrowUpRight;
                 return (
                   <li key={i}>
-                    <a href={social.href} className="group flex items-center gap-4 text-ivory/80 hover:text-gold transition-colors text-sm">
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-ivory/80 hover:text-gold transition-colors text-sm">
                       <div className="w-10 h-10 rounded-full border border-ivory/20 flex items-center justify-center group-hover:border-gold group-hover:bg-gold/5 transition-all duration-300">
                         <IconComponent size={16} />
                       </div>

@@ -34,6 +34,8 @@ export default function SocialSection() {
               <ScrollReveal direction="up" delay={i * 0.1} key={i}>
                 <a 
                   href={platform.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-6 py-4 rounded-full border border-border bg-white hover:border-forest/30 hover:shadow-md transition-all duration-300 group"
                 >
                   <span className="text-forest group-hover:scale-110 transition-transform">

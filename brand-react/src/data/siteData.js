@@ -8,10 +8,10 @@ export const siteConfig = {
   phone: "+91 62321 38581",
   location: "Raipur, Chhattisgarh",
   socials: {
-    instagram: "#",
+    instagram: "https://www.instagram.com/coachnandan?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==",
     facebook: "#",
     youtube: "#",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/nandan-kumar-7a6771413/",
   },
 };
 
@@ -102,10 +102,10 @@ export const eventsData = {
   heading: "Upcoming",
   headingItalic: "Events",
   subtext: "Join us and transform together.",
-  cta: { label: "Explore Events", href: "#" },
+  cta: { label: "Explore Events", href: "/events-workshops" },
   items: [
-    { id: "ev1", month: "JUL", day: "24-26", type: "Virtual", title: "High-Performance Summit", location: "Online", spots: "Register Now", cta: "Register", image: "/images/event_1.jpg" },
-    { id: "ev2", month: "AUG", day: "12", type: "Virtual Masterclass", title: "Vitality & Vision Workshop", location: "Online", spots: "Register Now", cta: "Register", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" },
+    // Blank for now. Whenever new events are announced, add them here:
+    // { id: "ev1", month: "JUL", day: "24-26", type: "Virtual", title: "High-Performance Summit", location: "Online", spots: "Register Now", cta: "Register", image: "/images/event_1.jpg" },
   ]
 };
 
@@ -162,8 +162,8 @@ export const footerData = {
     {
       heading: "Connect",
       social: [
-        { label: "LinkedIn", href: "#", icon: "linkedin" },
-        { label: "Instagram", href: "#", icon: "instagram" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/nandan-kumar-7a6771413/", icon: "linkedin" },
+        { label: "Instagram", href: "https://www.instagram.com/coachnandan?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==", icon: "instagram" },
         { label: "YouTube", href: "#", icon: "youtube" }
       ]
     }
@@ -263,30 +263,26 @@ export const eventTypesData = {
 
 export const upcomingEventsPageData = {
   heading: 'Upcoming Experience Schedule',
-  subtext: 'Limited seats available to ensure meaningful interaction and personalized guidance.',
-  items: [
-    { dateStr: '24 OCT', title: 'High-Performance Lab', location: 'New York City', description: 'One-day executive masterclass on neuroscience-backed productivity and leadership systems.', price: '$1,250', href: '/book-appointment' },
-    { dateStr: '08 NOV', title: 'Mindful Leadership Retreat', location: 'Zurich', description: 'Three-day immersive retreat focused on emotional intelligence and executive resilience.', price: '$3,500', href: '/book-appointment' },
-    { dateStr: '15 DEC', title: 'Global Vision Webinar', location: 'Virtual', description: 'International online keynote exploring the future of leadership, wellness, and business growth.', price: 'Free', href: '/book-appointment' }
-  ]
+  subtext: 'Stay tuned! New events and experiences will be announced here soon.',
+  items: []
 };
 
 export const eventGalleryData = {
   heading: 'Moments of Impact',
   items: [
-    { title: 'Audience Engagement & Book Signing',          image: '/images/event_crowd.jpg',           position: 'center top'   },
+    { title: 'Audience Engagement & Book Signing',          image: '/images/event_crowd.jpg',           position: '65% 24%'   },
     { title: 'Associate Development Retreat – Seminar',     image: '/images/event_retreat_seminar.jpg', position: 'center center' },
-    { title: 'Ambassador Academy 2026',                     image: '/images/ambassador_academy.jpg',    position: 'center top'   },
-    { title: 'Nandan Kumar – Stage Presentation',           image: '/images/nandan_stage.jpg',          position: 'center 15%'   },
+    { title: 'Ambassador Academy 2026',                     image: '/images/ambassador_academy.jpg',    position: 'center 32%'   },
+    { title: 'Nandan Kumar – Stage Presentation',           image: '/images/nandan_stage.jpg',          position: 'center 10%'   },
     { title: "President's Team – Conference Hall",          image: '/images/event_large_hall.jpg',      position: 'center center' },
-    { title: 'Associate Development Retreat – Jaipur',     image: '/images/event_adr_jaipur.jpg',      position: 'center top'   },
-    { title: 'Retreat Group Photo',                         image: '/images/event_retreat_group.jpg',   position: 'center center' },
-    { title: 'Millionaire Team Award',                      image: '/images/event_award.jpg',           position: 'center 20%'   },
-    { title: 'BR NutriShala Coaching Session',              image: '/images/event_nutrishala.jpg',      position: 'center top'   },
-    { title: 'Panel at Event – Writing Notes',              image: '/images/event_writing.jpg',         position: 'center top'   },
+    { title: 'Associate Development Retreat – Jaipur',     image: '/images/event_adr_jaipur.jpg',      position: 'center 20%'   },
+    { title: 'Retreat Group Photo',                         image: '/images/event_retreat_group.jpg',   position: 'center 25%'   },
+    { title: 'Millionaire Team Award',                      image: '/images/event_award.jpg',           position: 'center 18%'   },
+    { title: 'BR NutriShala Coaching Session',              image: '/images/event_nutrishala.jpg',      position: 'center 50%'   },
+    { title: 'Panel at Event – Writing Notes',              image: '/images/event_writing.jpg',         position: 'center 22%'   },
     { title: 'Community Book Gift Ceremony',                image: '/images/event_book_gift.jpg',       position: 'center center' },
-    { title: 'Online Webinar – 132 Participants',           image: '/images/event_online.jpg',          position: 'center 30%'   },
-    { title: 'Formal Gala – Award Night',                   image: '/images/event_formal_gala.jpg',     position: 'center top'   }
+    { title: 'Online Webinar – 132 Participants',           image: '/images/event_online.jpg',          position: 'center 25%'   },
+    { title: 'Formal Gala – Award Night',                   image: '/images/event_formal_gala.jpg',     position: 'center 15%'   }
   ]
 };
 
@@ -340,8 +336,8 @@ export const socialSectionData = {
   heading: 'Follow Performance Insights',
   quote: '"Clarity is the ultimate sophisticated power."',
   platforms: [
-    { label: 'LinkedIn', icon: 'Briefcase', href: '#' },
-    { label: 'Instagram', icon: 'Camera', href: '#' },
+    { label: 'LinkedIn', icon: 'Briefcase', href: 'https://www.linkedin.com/in/nandan-kumar-7a6771413/' },
+    { label: 'Instagram', icon: 'Camera', href: 'https://www.instagram.com/coachnandan?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==' },
     { label: 'YouTube', icon: 'Video', href: '#' },
     { label: 'Website', icon: 'Globe', href: '#' }
   ]
@@ -479,7 +475,7 @@ export const journeyTimelineData = {
     { year: '2017', title: 'Coaching Certification', description: 'Completed advanced coaching certifications, combining executive leadership with holistic health science for a unified methodology.', image: '/images/nandan_milestone3.jpg' },
     { year: '2018', title: 'The Wellness Shift', description: 'Expanded into nutrition science and performance psychology, creating sustainable growth systems for professionals and entrepreneurs.', image: '/images/nandan_milestone4.jpg' },
     { year: '2019', title: 'Growing Network', description: 'Built a thriving network of wellness associates and coaches, empowering them to create their own independent wellness businesses.', image: '/images/nandan_milestone5.jpg' },
-    { year: '2020', title: 'Digital Coaching', description: 'Adapted to online coaching during challenging times, reaching hundreds of clients virtually and expanding the impact beyond geographical boundaries.', image: '/images/nandan_milestone6.jpg' },
+    { year: '2020', title: 'Hosted First Event', description: 'Successfully organized and hosted the first major live event, leading engaging workshops and sharing valuable insights with a dedicated community in person.', image: '/images/nandan_milestone6.jpg' },
     { year: '2021', title: 'Expanding Impact', description: 'Conducted 100+ events, workshops, and seminars, working with leaders, entrepreneurs, and professionals across multiple industries.', image: '/images/nandan_milestone7.jpg' },
     { year: '2022', title: 'Milestone Recognition', description: 'Received recognition for transforming 500+ lives through wellness coaching and business mentorship, becoming a trusted name in the coaching industry.', image: '/images/nandan_milestone8.jpg' },
     { year: '2026', title: 'Global Reach', description: 'Expanded coaching programs, workshops, and events internationally, continuing to transform lives through the intersection of wellness and leadership.', image: '/images/nandan_milestone9.jpg' }
