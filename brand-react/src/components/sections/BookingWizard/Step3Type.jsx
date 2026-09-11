@@ -81,9 +81,9 @@ export default function Step3Type({ bookingState, updateBooking, onNext, onPrev 
         </motion.div>
       )}
 
-      <div className="flex justify-between pt-2">
-        <Button variant="ghost" onClick={onPrev}>← Previous</Button>
-        <Button onClick={onNext} disabled={!bookingState.consultationType}>Next →</Button>
+      <div className="flex flex-col-reverse sm:flex-row gap-3 sm:justify-between pt-2">
+        <Button variant="ghost" onClick={onPrev} className="w-full sm:w-auto text-center justify-center">← Previous</Button>
+        <Button onClick={onNext} disabled={!bookingState.consultationType} className="w-full sm:w-auto text-center justify-center">Next: Enter Details →</Button>
       </div>
     </div>
   );

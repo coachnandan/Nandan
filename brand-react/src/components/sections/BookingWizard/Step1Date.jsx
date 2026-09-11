@@ -71,11 +71,11 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
 
       <div className="bg-white rounded-3xl shadow-sm border border-border overflow-hidden">
         {/* Month Nav */}
-        <div className="flex items-center justify-between px-8 py-5 border-b border-border">
+        <div className="flex items-center justify-between px-4 sm:px-8 py-4 sm:py-5 border-b border-border">
           <motion.button
             onClick={goPrev}
             whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-charcoal hover:bg-forest hover:text-ivory hover:border-forest transition-all duration-200"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center text-charcoal hover:bg-forest hover:text-ivory hover:border-forest transition-all duration-200"
           >
             ‹
           </motion.button>
@@ -86,7 +86,7 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction * -20 }}
               transition={{ duration: 0.2 }}
-              className="font-serif text-xl text-charcoal font-medium"
+              className="font-serif text-lg sm:text-xl text-charcoal font-medium"
             >
               {MONTHS[viewMonth]} {viewYear}
             </motion.span>
@@ -94,16 +94,16 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
           <motion.button
             onClick={goNext}
             whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-charcoal hover:bg-forest hover:text-ivory hover:border-forest transition-all duration-200"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center text-charcoal hover:bg-forest hover:text-ivory hover:border-forest transition-all duration-200"
           >
             ›
           </motion.button>
         </div>
 
         {/* Day labels */}
-        <div className="grid grid-cols-7 px-6 pt-4 pb-1">
+        <div className="grid grid-cols-7 px-3 sm:px-6 pt-3 sm:pt-4 pb-1">
           {DAYS.map(d => (
-            <div key={d} className="text-center text-[10px] tracking-widest uppercase text-text-muted font-medium py-1">
+            <div key={d} className="text-center text-[9px] sm:text-[10px] tracking-wider uppercase text-text-muted font-medium py-1">
               {d}
             </div>
           ))}
@@ -117,7 +117,7 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: direction * -30 }}
             transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="grid grid-cols-7 gap-1 px-6 pb-6"
+            className="grid grid-cols-7 gap-1 px-2.5 sm:px-6 pb-4 sm:pb-6"
           >
             {cells.map((day, i) => {
               if (!day) return <div key={`empty-${i}`} />;
@@ -136,7 +136,7 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
                   whileHover={!isDisabled ? { scale: 1.1 } : {}}
                   whileTap={!isDisabled ? { scale: 0.95 } : {}}
                   className={`
-                    relative aspect-square flex items-center justify-center rounded-xl text-sm font-medium transition-all duration-200
+                    relative aspect-square flex items-center justify-center rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all duration-200
                     ${isSelected ? 'bg-forest text-ivory shadow-lg' : ''}
                     ${!isSelected && !isDisabled ? 'hover:bg-sage text-charcoal cursor-pointer' : ''}
                     ${isBooked ? 'bg-sage/50 text-text-muted/50 cursor-not-allowed line-through' : ''}
@@ -146,7 +146,7 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
                 >
                   {day}
                   {isBooked && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gold/60" />
+                    <span className="absolute bottom-0.5 sm:bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gold/60" />
                   )}
                 </motion.button>
               );
@@ -155,10 +155,10 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
         </AnimatePresence>
 
         {/* Legend */}
-        <div className="flex items-center gap-6 px-8 pb-5 text-[10px] uppercase tracking-widest text-text-muted">
-          <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-md bg-forest inline-block" /> Selected</span>
-          <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-md bg-sage/50 inline-block" /> Booked</span>
-          <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-md ring-1 ring-gold inline-block" /> Today</span>
+        <div className="flex flex-wrap items-center gap-3 sm:gap-6 px-4 sm:px-8 pb-4 sm:pb-5 text-[9px] sm:text-[10px] uppercase tracking-widest text-text-muted border-t border-border/50 pt-3">
+          <span className="flex items-center gap-1.5 sm:gap-2"><span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm sm:rounded-md bg-forest inline-block" /> Selected</span>
+          <span className="flex items-center gap-1.5 sm:gap-2"><span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm sm:rounded-md bg-sage/50 inline-block" /> Booked</span>
+          <span className="flex items-center gap-1.5 sm:gap-2"><span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm sm:rounded-md ring-1 ring-gold inline-block" /> Today</span>
         </div>
       </div>
 
@@ -166,18 +166,18 @@ export default function Step1Date({ bookingState, updateBooking, onNext }) {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 bg-sage/40 border border-border rounded-2xl px-6 py-4"
+          className="flex items-center gap-3 bg-sage/40 border border-border rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4"
         >
           <span className="text-forest text-xl">✓</span>
           <div>
-            <p className="text-xs uppercase tracking-widest text-text-muted">Selected Date</p>
-            <p className="font-serif text-lg text-charcoal">{bookingState.date}</p>
+            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-text-muted">Selected Date</p>
+            <p className="font-serif text-base sm:text-lg text-charcoal">{bookingState.date}</p>
           </div>
         </motion.div>
       )}
 
-      <div className="flex justify-end">
-        <Button onClick={onNext} disabled={!bookingState.date}>
+      <div className="flex justify-end pt-2">
+        <Button onClick={onNext} disabled={!bookingState.date} className="w-full sm:w-auto text-center justify-center">
           Next: Select Time →
         </Button>
       </div>

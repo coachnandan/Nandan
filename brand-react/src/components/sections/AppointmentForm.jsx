@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { appointmentFormData } from '../../data/siteData';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { supabase } from '../../lib/supabase';
 
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
@@ -20,17 +21,63 @@ export default function AppointmentForm() {
   });
   
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    
-    // Simulate Supabase/API submission
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const contactId = crypto.randomUUID();
+      const appointmentId = crypto.randomUUID();
+
+      // 1. Insert contact
+      const { error: contactError } = await supabase
+        .from('contact')
+        .insert([
+          {
+            id: contactId,
+            full_name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone || null,
+            city: formData.city || null,
+            profession: formData.profession || null,
+            age: formData.age ? parseInt(formData.age, 10) : null,
+            service: formData.consultationType || null,
+            message: formData.message || null,
+          }
+        ]);
+
+      if (contactError) throw contactError;
+
+      // 2. Insert appointment linked to contact_id
+      const { error: appointmentError } = await supabase
+        .from('appointment')
+        .insert([
+          {
+            id: appointmentId,
+            contact_id: contactId,
+            consultation_type: formData.consultationType || 'General Consultation',
+            consultation_mode: formData.consultationMode === 'In-Person (Bengaluru)' ? 'in-person' : 'online',
+            appointment_date: formData.preferredDate || new Date().toISOString().split('T')[0],
+            time_slot: formData.preferredTime || '10:00 AM',
+            status: 'pending',
+            agreed_to_terms: formData.agree,
+            notes: formData.message || null,
+          }
+        ]);
+
+      if (appointmentError) throw appointmentError;
+
       setStatus('success');
       setFormData({ fullName: '', email: '', phone: '', city: '', profession: '', age: '', consultationType: '', consultationMode: '', preferredDate: '', preferredTime: '', message: '', agree: false });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error('Appointment submission failed:', err);
+      setStatus('error');
+      setErrorMessage(err.message || 'Failed to submit appointment.');
+    }
   };
 
   const handleChange = (e) => {

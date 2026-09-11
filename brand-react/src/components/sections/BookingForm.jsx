@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { bookingFormData } from '../../data/siteData';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { supabase } from '../../lib/supabase';
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -12,17 +13,55 @@ export default function BookingForm() {
   });
   
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    
-    // Simulate Supabase/API submission
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const contactId = crypto.randomUUID();
+      const bookingId = crypto.randomUUID();
+
+      // 1. Insert or register contact
+      const { error: contactError } = await supabase
+        .from('contact')
+        .insert([
+          {
+            id: contactId,
+            full_name: formData.fullName,
+            email: formData.email,
+            service: formData.eventType,
+            message: formData.message,
+          }
+        ]);
+
+      if (contactError) throw contactError;
+
+      // 2. Insert into booking table linked to contact_id
+      const { error: bookingError } = await supabase
+        .from('booking')
+        .insert([
+          {
+            id: bookingId,
+            contact_id: contactId,
+            booking_type: formData.eventType || 'Event Booking',
+            status: 'pending',
+            message: formData.message,
+          }
+        ]);
+
+      if (bookingError) throw bookingError;
+
       setStatus('success');
       setFormData({ fullName: '', email: '', eventType: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error('Booking submission failed:', err);
+      setStatus('error');
+      setErrorMessage(err.message || 'Failed to submit booking.');
+    }
   };
 
   const handleChange = (e) => {
@@ -30,10 +69,10 @@ export default function BookingForm() {
   };
 
   return (
-    <section className="py-12 px-6 lg:px-16 max-w-3xl mx-auto w-full">
-      <ScrollReveal direction="up" className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-border">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl lg:text-4xl font-serif text-charcoal">{bookingFormData.heading}</h2>
+    <section className="py-12 px-4 sm:px-6 lg:px-16 max-w-3xl mx-auto w-full">
+      <ScrollReveal direction="up" className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-border">
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-charcoal">{bookingFormData.heading}</h2>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

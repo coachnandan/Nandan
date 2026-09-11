@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { contactFormData } from '../../data/siteData';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { supabase } from '../../lib/supabase';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,17 +15,41 @@ export default function ContactForm() {
   });
   
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    
-    // Simulate Supabase/API submission
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const { error } = await supabase
+        .from('contact')
+        .insert([
+          {
+            id: crypto.randomUUID(),
+            full_name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone || null,
+            service: formData.service || null,
+            message: formData.message || null,
+            subscribe: formData.subscribe,
+          }
+        ]);
+
+      if (error) {
+        console.error('[Supabase Error]:', error);
+        throw error;
+      }
+
       setStatus('success');
       setFormData({ fullName: '', email: '', phone: '', service: '', message: '', subscribe: false });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error('Submission failed:', err);
+      setStatus('error');
+      setErrorMessage(err.message || 'Failed to submit inquiry. Please check your Supabase setup.');
+    }
   };
 
   const handleChange = (e) => {
@@ -33,14 +58,14 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="inquiry" className="py-24 px-6 lg:px-16 max-w-4xl mx-auto w-full">
-      <ScrollReveal direction="up" className="bg-sage/20 rounded-[40px] p-8 lg:p-16 border border-border">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-5xl font-serif text-charcoal">{contactFormData.heading}</h2>
+    <section id="inquiry" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-16 max-w-4xl mx-auto w-full">
+      <ScrollReveal direction="up" className="bg-sage/20 rounded-[28px] sm:rounded-[40px] p-5 sm:p-8 lg:p-16 border border-border">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-serif text-charcoal">{contactFormData.heading}</h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
             <div className="space-y-2">
               <label htmlFor="fullName" className="block text-xs font-medium uppercase tracking-widest text-text-muted">Full Name</label>
               <input 
@@ -129,6 +154,18 @@ export default function ContactForm() {
               Sign up for monthly performance insights.
             </label>
           </div>
+
+          {status === 'error' && (
+            <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm text-center">
+              ⚠️ {errorMessage}
+            </div>
+          )}
+
+          {status === 'success' && (
+            <div className="p-4 rounded-xl bg-forest/10 border border-forest/30 text-forest text-sm text-center font-medium">
+              ✓ Your inquiry has been successfully sent to the database!
+            </div>
+          )}
 
           <div className="pt-6 flex justify-center">
             <Button 

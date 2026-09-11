@@ -19,6 +19,8 @@ const INITIAL_STATE = {
   details: {},
 };
 
+import { supabase } from '../../../lib/supabase';
+
 function generateRef() {
   return 'NKS-' + Math.random().toString(36).substring(2, 8).toUpperCase();
 }
@@ -96,15 +98,63 @@ export default function BookingWizard() {
 
   const handleConfirm = async () => {
     setIsSubmitting(true);
-    const payload = buildBookingPayload(bookingState);
-    console.log('[Supabase Ready] Booking Payload:', payload);
-    // TODO: Replace with actual Supabase insert:
-    // const { error } = await supabase.from('appointments').insert([payload]);
-    await new Promise(res => setTimeout(res, 1200)); // simulate async
-    const ref = generateRef();
-    setBookingRef(ref);
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      const contactId = crypto.randomUUID();
+      const appointmentId = crypto.randomUUID();
+
+      // 1. Create or insert contact
+      const { error: contactError } = await supabase
+        .from('contact')
+        .insert([
+          {
+            id: contactId,
+            full_name: bookingState.details.name,
+            email: bookingState.details.email,
+            phone: bookingState.details.phone || null,
+            city: bookingState.details.city || null,
+            profession: bookingState.details.profession || null,
+            age: bookingState.details.age ? parseInt(bookingState.details.age, 10) : null,
+            service: bookingState.consultationType,
+            message: bookingState.details.message || null,
+          }
+        ]);
+
+      if (contactError) {
+        console.error('[Supabase Contact Error]:', contactError);
+        throw contactError;
+      }
+
+      // 2. Create appointment linked to contact_id
+      const { error: appointmentError } = await supabase
+        .from('appointment')
+        .insert([
+          {
+            id: appointmentId,
+            contact_id: contactId,
+            consultation_type: bookingState.consultationType,
+            consultation_mode: 'online',
+            appointment_date: bookingState.date,
+            time_slot: bookingState.time,
+            status: 'pending',
+            agreed_to_terms: bookingState.details.agreedToTerms || true,
+            notes: bookingState.details.message || null,
+          }
+        ]);
+
+      if (appointmentError) {
+        console.error('[Supabase Appointment Error]:', appointmentError);
+        throw appointmentError;
+      }
+
+      const ref = generateRef();
+      setBookingRef(ref);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Failed to complete booking:', err);
+      alert('Failed to save booking to database: ' + (err.message || 'Unknown error'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleBookAnother = () => {

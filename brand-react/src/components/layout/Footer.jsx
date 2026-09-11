@@ -24,24 +24,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-charcoal text-ivory py-24 px-6 lg:px-16 mt-20">
+    <footer className="bg-charcoal text-ivory py-16 sm:py-24 px-6 lg:px-16 mt-16 sm:mt-20">
       <div className="max-w-7xl mx-auto">
         
         {/* Top Section: Brand & CTA */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-20 pb-16 border-b border-ivory/10">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12 sm:mb-20 pb-12 sm:pb-16 border-b border-ivory/10">
           <div className="max-w-md">
-            <h3 className="font-serif text-3xl lg:text-4xl text-ivory mb-6">{footerData.brand}</h3>
-            <p className="text-ivory/60 text-base leading-relaxed whitespace-pre-line">{footerData.description}</p>
+            <h3 className="font-serif text-3xl lg:text-4xl text-ivory mb-4 sm:mb-6">{footerData.brand}</h3>
+            <p className="text-ivory/60 text-sm sm:text-base leading-relaxed whitespace-pre-line">{footerData.description}</p>
           </div>
-          <div className="shrink-0">
-            <Button href={footerData.cta.href} variant="outline" className="text-ivory border-ivory hover:bg-gold hover:border-gold hover:text-charcoal transition-all">
+          <div className="w-full sm:w-auto shrink-0">
+            <Button href={footerData.cta.href} variant="outline" className="w-full sm:w-auto text-center justify-center text-ivory border-ivory hover:bg-gold hover:border-gold hover:text-charcoal transition-all">
               {footerData.cta.label}
             </Button>
           </div>
         </div>
 
         {/* Middle Section: Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16 sm:mb-24">
           
           {/* Column 1: Coaching */}
           <div>

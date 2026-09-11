@@ -47,9 +47,9 @@ export default function Step4Details({ bookingState, updateBooking, onNext, onPr
         <p className="text-text-muted">Your details help us tailor the session to your needs.</p>
       </div>
 
-      <div className="bg-white rounded-3xl border border-border p-8 space-y-6">
+      <div className="bg-white rounded-3xl border border-border p-5 sm:p-8 space-y-6">
         {/* Main fields in 2-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {mainFields.map((field, i) => (
             <motion.div
               key={field.id}
@@ -123,7 +123,7 @@ export default function Step4Details({ bookingState, updateBooking, onNext, onPr
                 )}
               </div>
             </div>
-            <span className="text-sm text-text-muted leading-relaxed">
+            <span className="text-xs sm:text-sm text-text-muted leading-relaxed">
               I agree to the{' '}
               <a href="/terms-of-service" className="text-forest underline underline-offset-2 hover:text-gold transition-colors">
                 Terms of Service
@@ -140,9 +140,9 @@ export default function Step4Details({ bookingState, updateBooking, onNext, onPr
         </motion.div>
       </div>
 
-      <div className="flex justify-between pt-2">
-        <Button variant="ghost" onClick={onPrev}>← Previous</Button>
-        <Button onClick={handleNext}>Review Booking →</Button>
+      <div className="flex flex-col-reverse sm:flex-row gap-3 sm:justify-between pt-2">
+        <Button variant="ghost" onClick={onPrev} className="w-full sm:w-auto text-center justify-center">← Previous</Button>
+        <Button onClick={handleNext} className="w-full sm:w-auto text-center justify-center">Review Booking →</Button>
       </div>
     </div>
   );

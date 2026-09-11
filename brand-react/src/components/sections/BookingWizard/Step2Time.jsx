@@ -13,7 +13,7 @@ export default function Step2Time({ bookingState, updateBooking, onNext, onPrev 
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
         {availableTimeSlots.map((slot, i) => {
           const isSelected = bookingState.time === slot.id;
           return (
@@ -27,7 +27,7 @@ export default function Step2Time({ bookingState, updateBooking, onNext, onPrev 
               whileHover={!slot.booked ? { y: -4, shadow: '0 8px 24px rgba(24,53,47,0.12)' } : {}}
               whileTap={!slot.booked ? { scale: 0.97 } : {}}
               className={`
-                relative flex flex-col items-center justify-center rounded-2xl p-6 border transition-all duration-300
+                relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl p-4 sm:p-6 border transition-all duration-300
                 ${isSelected
                   ? 'bg-forest text-ivory border-forest shadow-lg shadow-forest/20'
                   : slot.booked
@@ -36,20 +36,20 @@ export default function Step2Time({ bookingState, updateBooking, onNext, onPrev 
                 }
               `}
             >
-              <span className={`font-serif text-2xl font-light mb-1 ${isSelected ? 'text-ivory' : slot.booked ? 'text-text-muted/40' : 'text-charcoal'}`}>
+              <span className={`font-serif text-xl sm:text-2xl font-light mb-0.5 sm:mb-1 ${isSelected ? 'text-ivory' : slot.booked ? 'text-text-muted/40' : 'text-charcoal'}`}>
                 {slot.time.split(' ')[0]}
               </span>
-              <span className={`text-xs tracking-widest uppercase ${isSelected ? 'text-ivory/70' : slot.booked ? 'text-text-muted/40' : 'text-text-muted'}`}>
+              <span className={`text-[10px] sm:text-xs tracking-widest uppercase ${isSelected ? 'text-ivory/70' : slot.booked ? 'text-text-muted/40' : 'text-text-muted'}`}>
                 {slot.time.split(' ')[1]}
               </span>
               {slot.booked && (
-                <span className="absolute top-2 right-3 text-[9px] tracking-widest uppercase text-gold/60">Booked</span>
+                <span className="absolute top-2 right-2.5 sm:right-3 text-[8px] sm:text-[9px] tracking-widest uppercase text-gold/60">Booked</span>
               )}
               {isSelected && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute top-2 right-3 w-2 h-2 rounded-full bg-gold"
+                  className="absolute top-2 right-2.5 sm:right-3 w-2 h-2 rounded-full bg-gold"
                 />
               )}
             </motion.button>
@@ -61,19 +61,19 @@ export default function Step2Time({ bookingState, updateBooking, onNext, onPrev 
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 bg-sage/40 border border-border rounded-2xl px-6 py-4"
+          className="flex items-center gap-3 bg-sage/40 border border-border rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4"
         >
           <span className="text-forest text-xl">✓</span>
           <div>
-            <p className="text-xs uppercase tracking-widest text-text-muted">Selected Time</p>
-            <p className="font-serif text-lg text-charcoal">{bookingState.timeLabel}</p>
+            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-text-muted">Selected Time</p>
+            <p className="font-serif text-base sm:text-lg text-charcoal">{bookingState.timeLabel}</p>
           </div>
         </motion.div>
       )}
 
-      <div className="flex justify-between pt-2">
-        <Button variant="ghost" onClick={onPrev}>← Previous</Button>
-        <Button onClick={onNext} disabled={!bookingState.time}>Next →</Button>
+      <div className="flex flex-col-reverse sm:flex-row gap-3 sm:justify-between pt-2">
+        <Button variant="ghost" onClick={onPrev} className="w-full sm:w-auto text-center justify-center">← Previous</Button>
+        <Button onClick={onNext} disabled={!bookingState.time} className="w-full sm:w-auto text-center justify-center">Next: Choose Service →</Button>
       </div>
     </div>
   );

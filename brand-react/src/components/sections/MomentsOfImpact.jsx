@@ -13,39 +13,35 @@ export default function MomentsOfImpact() {
         </h2>
       </ScrollReveal>
 
-      <div className="space-y-16 md:space-y-20 max-w-6xl mx-auto">
+      <div className="space-y-16 md:space-y-24">
         {eventGalleryData.items.map((item, index) => {
           const isEven = index % 2 === 0;
 
           return (
             <div 
               key={index} 
-              className={`flex flex-col md:flex-row items-center gap-8 lg:gap-14 ${isEven ? '' : 'md:flex-row-reverse'}`}
+              className={`flex flex-col md:flex-row items-center gap-8 lg:gap-16 ${isEven ? '' : 'md:flex-row-reverse'}`}
             >
-              {/* Image Section - Compact and well-proportioned */}
-              <div className="w-full md:w-5/12 lg:w-5/12 max-w-lg mx-auto md:mx-0">
-                <ScrollReveal direction={isEven ? "right" : "left"} className="w-full relative group">
-                  <div className="overflow-hidden rounded-[24px] aspect-[4/3] max-h-[340px] bg-sage/20 border border-border/80 shadow-md group-hover:shadow-xl transition-all duration-500 relative">
+              {/* Image Section */}
+              <div className="w-full md:w-1/2">
+                <ScrollReveal direction={isEven ? "right" : "left"} className="w-full h-full relative group">
+                  <div className="overflow-hidden rounded-3xl aspect-[16/10] max-h-[380px] bg-sage/30 relative shadow-md">
                     {/* Parallax & Hover Effect */}
                     <motion.div
                       whileHover={{ scale: 1.04 }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
-                      className="w-full h-full"
+                      className="absolute inset-0"
                     >
                       <img 
                         src={item.image} 
                         alt={item.title}
                         loading="lazy"
-                        style={{ objectPosition: item.position || 'center top' }}
                         className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.parentElement.innerHTML = '<div class="w-full h-full bg-sage/30 flex items-center justify-center text-forest/40 font-serif italic text-base px-4 text-center">' + item.title + '</div>';
-                        }}
+                        style={{ objectPosition: item.position || 'center' }}
                       />
                     </motion.div>
-                    {/* Subtle Overlay gradient on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   </div>
                 </ScrollReveal>
               </div>
