@@ -12,3 +12,6 @@ dist-ssr/
 # Logs
 logs/
 *.log
+
+# Temporary / downloads
+images/*WhatsApp*

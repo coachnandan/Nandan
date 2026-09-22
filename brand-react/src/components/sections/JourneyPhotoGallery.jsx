@@ -15,6 +15,7 @@ const MILESTONE_IMAGES = [
   { src: '/images/nandan_milestone7.jpg', pos: 'center top'  }, // 2021 – Expanding Impact, large hall seminar
   { src: '/images/nandan_milestone8.jpg', pos: 'center top'  }, // 2022 – Milestone Recognition, sequined tuxedo
   { src: '/images/nandan_milestone9.jpg', pos: 'center 30%'  }, // 2026 – Global Reach, Vietnam
+  { src: '/images/nandan_milestone10.jpg', pos: 'center 20%' }, // 2026 – Kerala Wellness & Leadership Tour
 ];
 
 // Parallax image block
@@ -202,7 +203,7 @@ export default function JourneyPhotoGallery() {
       {/* ── Milestones ── */}
       <div className="max-w-6xl mx-auto divide-y divide-border/40">
         {journeyTimelineData.items.map((milestone, i) => (
-          <MilestoneBlock key={milestone.year} milestone={milestone} index={i} />
+          <MilestoneBlock key={`${milestone.year}-${i}`} milestone={milestone} index={i} />
         ))}
       </div>
 

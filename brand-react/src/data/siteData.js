@@ -33,7 +33,7 @@ export const heroData = {
   description: "Helping individuals achieve better health, stronger leadership, and meaningful growth through proven coaching systems.",
   primaryCTA: { label: "Book Appointment", href: "/book-appointment" },
   secondaryCTA: { label: "Watch Success Stories", href: "#success-stories" },
-  image: "/images/nandan_hero.jpg",
+  image: "/images/nandan_hero_blue.png",
   imageAlt: "Nandan Kumar Singh – High Performance Coach",
   stats: [
     { number: 15, suffix: "+", label: "Years Experience" },
@@ -478,7 +478,8 @@ export const journeyTimelineData = {
     { year: '2020', title: 'Hosted First Event', description: 'Successfully organized and hosted the first major live event, leading engaging workshops and sharing valuable insights with a dedicated community in person.', image: '/images/nandan_milestone6.jpg' },
     { year: '2021', title: 'Expanding Impact', description: 'Conducted 100+ events, workshops, and seminars, working with leaders, entrepreneurs, and professionals across multiple industries.', image: '/images/nandan_milestone7.jpg' },
     { year: '2022', title: 'Milestone Recognition', description: 'Received recognition for transforming 500+ lives through wellness coaching and business mentorship, becoming a trusted name in the coaching industry.', image: '/images/nandan_milestone8.jpg' },
-    { year: '2026', title: 'Global Reach', description: 'Expanded coaching programs, workshops, and events internationally, continuing to transform lives through the intersection of wellness and leadership.', image: '/images/nandan_milestone9.jpg' }
+    { year: '2026', title: 'Global Reach', description: 'Expanded coaching programs, workshops, and events internationally, continuing to transform lives through the intersection of wellness and leadership.', image: '/images/nandan_milestone9.jpg' },
+    { year: '2026', title: 'Kerala Wellness & Leadership Tour', description: 'Hosted an exclusive leadership immersion and wellness retreat across Kerala, uniting high-performance leaders for mindfulness, cultural rejuvenation, and purposeful growth amidst the tea hills of Munnar.', image: '/images/nandan_milestone10.jpg' }
   ]
 };
 
@@ -512,7 +513,8 @@ export const journeyPhotoGalleryData = {
     { title: 'Speaking & Impact', image: '/images/speaking_image.png' },
     { title: 'Mentoring Sessions', image: '/images/mentoring_image.png' },
     { title: 'Formal Leadership', image: '/images/event_sofa_formal.jpg' },
-    { title: 'Executive Presence', image: '/images/event_formal_seated.jpg' }
+    { title: 'Executive Presence', image: '/images/event_formal_seated.jpg' },
+    { title: 'Kerala Wellness Tour', image: '/images/nandan_milestone10.jpg' }
   ]
 };
 
