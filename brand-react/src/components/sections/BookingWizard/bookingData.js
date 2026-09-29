@@ -61,8 +61,8 @@ export const availableTimeSlots = [
 
 export const personalDetailsFields = [
   { id: 'name', label: 'Full Name', type: 'text', placeholder: 'Your full name', required: true },
-  { id: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com', required: true },
-  { id: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+91 00000 00000', required: true },
+  { id: 'email', label: 'Email Address', type: 'email', placeholder: 'yourname@gmail.com', required: true },
+  { id: 'phone', label: 'Phone Number', type: 'tel', placeholder: '9876543210', required: true },
   { id: 'city', label: 'City', type: 'text', placeholder: 'Your city', required: true },
   { id: 'profession', label: 'Profession', type: 'text', placeholder: 'Your profession or role', required: true },
   { id: 'age', label: 'Age', type: 'number', placeholder: 'Your age', required: true },

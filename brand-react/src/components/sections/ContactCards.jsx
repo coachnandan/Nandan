@@ -10,21 +10,38 @@ const icons = {
 
 export default function ContactCards() {
   return (
-    <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto -mt-32 relative z-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-8 sm:py-12 px-6 lg:px-16 max-w-6xl mx-auto relative z-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {contactCardsData.map((card, i) => {
           const Icon = icons[card.icon];
           return (
-            <ScrollReveal direction="up" delay={i * 0.15} key={i}>
-              <div className="bg-white/80 backdrop-blur-xl p-10 rounded-[32px] border border-border shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center text-center group">
-                <div className="w-16 h-16 rounded-full bg-sage flex items-center justify-center text-forest group-hover:bg-forest group-hover:text-white transition-colors duration-500 mb-6">
-                  {Icon && <Icon size={24} strokeWidth={1.5} />}
+            <ScrollReveal direction="up" delay={i * 0.1} key={i}>
+              <div className="bg-white/90 backdrop-blur-md p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-border/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center text-center group">
+                <div className="w-12 h-12 rounded-full bg-sage/60 flex items-center justify-center text-forest group-hover:bg-forest group-hover:text-white transition-colors duration-300 mb-4">
+                  {Icon && <Icon size={20} strokeWidth={1.75} />}
                 </div>
-                <h3 className="text-sm font-mono tracking-widest uppercase text-gold mb-4">{card.title}</h3>
+                <h3 className="text-xs font-semibold tracking-widest uppercase text-gold mb-2">{card.title}</h3>
                 {card.href ? (
-                  <a href={card.href} className="text-lg text-charcoal font-serif leading-relaxed whitespace-pre-line hover:text-gold transition-colors">{card.info}</a>
+                  <a
+                    href={card.href}
+                    target={card.href.startsWith('http') ? '_blank' : undefined}
+                    rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="text-base sm:text-lg font-serif text-charcoal hover:text-forest transition-colors font-medium leading-snug"
+                  >
+                    <span>{card.info}</span>
+                    {card.subtext && (
+                      <span className="block text-xs sm:text-sm text-text-muted mt-1 font-sans leading-relaxed">
+                        {card.subtext}
+                      </span>
+                    )}
+                  </a>
                 ) : (
-                  <p className="text-lg text-charcoal font-serif leading-relaxed whitespace-pre-line">{card.info}</p>
+                  <div>
+                    <p className="text-base sm:text-lg font-serif text-charcoal font-medium leading-snug">{card.info}</p>
+                    {card.subtext && (
+                      <p className="text-xs sm:text-sm text-text-muted mt-1 font-sans leading-relaxed">{card.subtext}</p>
+                    )}
+                  </div>
                 )}
               </div>
             </ScrollReveal>

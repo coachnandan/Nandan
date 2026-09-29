@@ -3,6 +3,8 @@ import { bookingFormData } from '../../data/siteData';
 import SectionEyebrow from '../ui/SectionEyebrow';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { supabase } from '../../lib/supabase';
+import { trackLeadEvent } from '../../lib/metaPixel';
 
 export default function BookingInquiry() {
   const [formData, setFormData] = useState({
@@ -16,15 +18,78 @@ export default function BookingInquiry() {
     message: ''
   });
 
+  const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Supabase integration placeholder
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. Our team will contact you shortly.');
+    if (status === 'loading') return;
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const contactId = crypto.randomUUID();
+      const bookingId = crypto.randomUUID();
+
+      // 1. Insert contact
+      const { error: contactError } = await supabase
+        .from('contact')
+        .insert([
+          {
+            id: contactId,
+            full_name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone || null,
+            city: formData.location || null,
+            profession: formData.company || null,
+            service: formData.eventType || 'Workshop / Event',
+            message: formData.message || null,
+          }
+        ]);
+
+      if (contactError) throw contactError;
+
+      // 2. Insert booking
+      const { error: bookingError } = await supabase
+        .from('booking')
+        .insert([
+          {
+            id: bookingId,
+            contact_id: contactId,
+            booking_type: formData.eventType || 'Workshop / Event',
+            location: formData.location || null,
+            event_date: formData.preferredDate || null,
+            status: 'pending',
+            message: formData.message || null,
+          }
+        ]);
+
+      if (bookingError) throw bookingError;
+
+      // Meta Pixel Lead Event (fired ONLY after confirmed backend success)
+      trackLeadEvent(bookingId, { content_name: 'Workshop & Event Inquiry Form' });
+
+      setStatus('success');
+      setFormData({
+        fullName: '',
+        company: '',
+        email: '',
+        phone: '',
+        eventType: '',
+        preferredDate: '',
+        location: '',
+        message: ''
+      });
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error('Inquiry submission failed:', err);
+      setStatus('error');
+      setErrorMessage(err.message || 'Failed to submit inquiry.');
+    }
   };
 
   return (
@@ -146,9 +211,23 @@ export default function BookingInquiry() {
             ></textarea>
           </div>
 
+          {errorMessage && (
+            <p className="text-red-500 text-sm text-center">{errorMessage}</p>
+          )}
+
+          {status === 'success' && (
+            <div className="p-4 bg-forest/10 border border-forest/20 rounded-xl text-forest text-center text-sm font-medium">
+              Thank you! Your inquiry has been submitted successfully. We will be in touch shortly.
+            </div>
+          )}
+
           <div className="pt-4 flex justify-end">
-            <Button type="submit" className="w-full md:w-auto px-10 py-4">
-              {bookingFormData.cta}
+            <Button 
+              type="submit" 
+              disabled={status === 'loading'} 
+              className="w-full md:w-auto px-10 py-4"
+            >
+              {status === 'loading' ? 'Submitting...' : status === 'success' ? 'Inquiry Sent ✓' : bookingFormData.cta}
             </Button>
           </div>
 

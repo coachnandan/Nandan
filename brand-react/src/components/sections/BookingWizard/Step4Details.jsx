@@ -17,7 +17,14 @@ export default function Step4Details({ bookingState, updateBooking, onNext, onPr
   const details = bookingState.details || {};
 
   const handleChange = (id, value) => {
-    updateBooking({ details: { ...details, [id]: value } });
+    let finalValue = value;
+    if (id === 'phone') {
+      let digits = value.replace(/\D/g, '');
+      if (digits.length === 12 && digits.startsWith('91')) digits = digits.slice(2);
+      else if (digits.length === 11 && digits.startsWith('0')) digits = digits.slice(1);
+      finalValue = digits.slice(0, 10);
+    }
+    updateBooking({ details: { ...details, [id]: finalValue } });
     if (errors[id]) setErrors(prev => ({ ...prev, [id]: '' }));
   };
 
@@ -28,6 +35,23 @@ export default function Step4Details({ bookingState, updateBooking, onNext, onPr
         newErrors[f.id] = `${f.label} is required`;
       }
     });
+
+    // Email validation (@gmail.com)
+    if (details.email) {
+      const email = details.email.trim().toLowerCase();
+      if (!email.endsWith('@gmail.com') || email === '@gmail.com') {
+        newErrors.email = 'Email must end with @gmail.com';
+      }
+    }
+
+    // Phone validation (10 digits)
+    if (details.phone) {
+      const phoneDigits = details.phone.replace(/\D/g, '');
+      if (phoneDigits.length !== 10) {
+        newErrors.phone = `Phone must be exactly 10 digits (currently ${phoneDigits.length})`;
+      }
+    }
+
     if (!details.agreedToTerms) newErrors.agreedToTerms = 'Please agree to the Terms & Privacy Policy';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

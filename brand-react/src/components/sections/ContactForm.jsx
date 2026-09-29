@@ -3,6 +3,7 @@ import { contactFormData } from '../../data/siteData';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
 import { supabase } from '../../lib/supabase';
+import { trackLeadEvent } from '../../lib/metaPixel';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,20 +17,52 @@ export default function ContactForm() {
   
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
+
+  const validate = () => {
+    const errors = {};
+
+    // Email validation: must end with @gmail.com
+    const email = (formData.email || '').trim().toLowerCase();
+    if (!email) {
+      errors.email = 'Email address is required.';
+    } else if (!email.endsWith('@gmail.com') || email === '@gmail.com') {
+      errors.email = 'Email must end with @gmail.com (e.g. yourname@gmail.com).';
+    } else {
+      const username = email.slice(0, -10); // length of '@gmail.com' is 10
+      if (!username || username.length < 2) {
+        errors.email = 'Please enter a valid Gmail username.';
+      }
+    }
+
+    // Phone validation: must be exactly 10 digits
+    const digits = (formData.phone || '').replace(/\D/g, '');
+    if (!digits) {
+      errors.phone = 'Phone number is required.';
+    } else if (digits.length !== 10) {
+      errors.phone = `Phone number must be exactly 10 digits (currently ${digits.length}).`;
+    }
+
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
+    if (status === 'loading') return; // Prevent double submission
     setStatus('loading');
     setErrorMessage('');
 
     try {
+      const contactId = crypto.randomUUID();
       const { error } = await supabase
         .from('contact')
         .insert([
           {
-            id: crypto.randomUUID(),
+            id: contactId,
             full_name: formData.fullName,
-            email: formData.email,
+            email: formData.email.trim().toLowerCase(),
             phone: formData.phone || null,
             service: formData.service || null,
             message: formData.message || null,
@@ -42,8 +75,12 @@ export default function ContactForm() {
         throw error;
       }
 
+      // Meta Pixel Lead Event (fired ONLY after confirmed backend success)
+      trackLeadEvent(contactId, { content_name: 'Contact Inquiry Form' });
+
       setStatus('success');
       setFormData({ fullName: '', email: '', phone: '', service: '', message: '', subscribe: false });
+      setFieldErrors({});
       setTimeout(() => setStatus('idle'), 4000);
     } catch (err) {
       console.error('Submission failed:', err);
@@ -53,8 +90,41 @@ export default function ContactForm() {
   };
 
   const handleChange = (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    setFormData({ ...formData, [e.target.name]: value });
+    const { name, value, type, checked } = e.target;
+    if (type === 'checkbox') {
+      setFormData({ ...formData, [name]: checked });
+      return;
+    }
+
+    if (name === 'phone') {
+      let digits = value.replace(/\D/g, '');
+      // Handle paste with country code (+91 or 0 prefix)
+      if (digits.length === 12 && digits.startsWith('91')) {
+        digits = digits.slice(2);
+      } else if (digits.length === 11 && digits.startsWith('0')) {
+        digits = digits.slice(1);
+      }
+      // Strictly prevent entering more than 10 digits
+      digits = digits.slice(0, 10);
+
+      setFormData(prev => ({ ...prev, phone: digits }));
+      if (fieldErrors.phone) {
+        if (digits.length === 10) {
+          setFieldErrors(prev => ({ ...prev, phone: '' }));
+        }
+      }
+      return;
+    }
+
+    if (name === 'email') {
+      setFormData(prev => ({ ...prev, email: value }));
+      if (fieldErrors.email && value.trim().toLowerCase().endsWith('@gmail.com')) {
+        setFieldErrors(prev => ({ ...prev, email: '' }));
+      }
+      return;
+    }
+
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -76,12 +146,17 @@ export default function ContactForm() {
                 onChange={handleChange}
                 required
                 className="w-full bg-white border border-border rounded-xl px-4 py-4 text-charcoal focus:outline-none focus:border-forest/50 focus:ring-1 focus:ring-forest/50 transition-all"
-                placeholder="John Doe"
+                placeholder="Rahul Sharma"
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="email" className="block text-xs font-medium uppercase tracking-widest text-text-muted">Corporate Email</label>
+              <div className="flex justify-between items-center">
+                <label htmlFor="email" className="block text-xs font-medium uppercase tracking-widest text-text-muted">
+                  Email Address
+                </label>
+                <span className="text-[11px] text-forest font-medium">Must be @gmail.com</span>
+              </div>
               <input 
                 type="email" 
                 id="email" 
@@ -89,24 +164,47 @@ export default function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-white border border-border rounded-xl px-4 py-4 text-charcoal focus:outline-none focus:border-forest/50 focus:ring-1 focus:ring-forest/50 transition-all"
-                placeholder="john@company.com"
+                className={`w-full bg-white border rounded-xl px-4 py-4 text-charcoal focus:outline-none transition-all ${
+                  fieldErrors.email 
+                    ? 'border-red-500 ring-1 ring-red-500 bg-red-50/20' 
+                    : 'border-border focus:border-forest/50 focus:ring-1 focus:ring-forest/50'
+                }`}
+                placeholder="rahul.sharma@gmail.com"
               />
+              {fieldErrors.email && (
+                <p className="text-xs text-red-500 font-medium mt-1">{fieldErrors.email}</p>
+              )}
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-2">
-              <label htmlFor="phone" className="block text-xs font-medium uppercase tracking-widest text-text-muted">Phone Number</label>
+              <div className="flex justify-between items-center">
+                <label htmlFor="phone" className="block text-xs font-medium uppercase tracking-widest text-text-muted">
+                  Phone Number
+                </label>
+                <span className={`text-[11px] font-medium ${formData.phone.length === 10 ? 'text-forest' : 'text-text-muted'}`}>
+                  {formData.phone ? `${formData.phone.length}/10 digits` : '10 digits required'}
+                </span>
+              </div>
               <input 
                 type="tel" 
                 id="phone" 
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full bg-white border border-border rounded-xl px-4 py-4 text-charcoal focus:outline-none focus:border-forest/50 focus:ring-1 focus:ring-forest/50 transition-all"
-                placeholder="+1 (555) 000-0000"
+                maxLength={10}
+                required
+                className={`w-full bg-white border rounded-xl px-4 py-4 text-charcoal focus:outline-none transition-all ${
+                  fieldErrors.phone 
+                    ? 'border-red-500 ring-1 ring-red-500 bg-red-50/20' 
+                    : 'border-border focus:border-forest/50 focus:ring-1 focus:ring-forest/50'
+                }`}
+                placeholder="9876543210"
               />
+              {fieldErrors.phone && (
+                <p className="text-xs text-red-500 font-medium mt-1">{fieldErrors.phone}</p>
+              )}
             </div>
 
             <div className="space-y-2">

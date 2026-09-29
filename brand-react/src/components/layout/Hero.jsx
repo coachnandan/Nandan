@@ -107,8 +107,8 @@ export default function Hero({ data }) {
                     </svg>
                   </div>
                   <div className="pr-1 text-left whitespace-nowrap">
-                    <span class="block text-[8px] font-medium uppercase tracking-wider text-amber-800">Recognition</span>
-                    <span class="block text-xs font-semibold text-charcoal leading-tight">Executive President's Team</span>
+                    <span className="block text-[8px] font-medium uppercase tracking-wider text-amber-800">Recognition</span>
+                    <span className="block text-xs font-semibold text-charcoal leading-tight">Executive President's Team</span>
                   </div>
                 </div>
               </div>
@@ -123,8 +123,8 @@ export default function Hero({ data }) {
                     </svg>
                   </div>
                   <div className="pr-1 text-left whitespace-nowrap">
-                    <span class="block text-[8px] font-medium uppercase tracking-wider text-forest">Mentorship</span>
-                    <span class="block text-xs font-semibold text-charcoal leading-tight">15+ Years Leadership</span>
+                    <span className="block text-[8px] font-medium uppercase tracking-wider text-forest">Mentorship</span>
+                    <span className="block text-xs font-semibold text-charcoal leading-tight">15+ Years Leadership</span>
                   </div>
                 </div>
               </div>
@@ -138,8 +138,8 @@ export default function Hero({ data }) {
                     </svg>
                   </div>
                   <div className="pr-1 text-left whitespace-nowrap">
-                    <span class="block text-[8px] font-medium uppercase tracking-wider text-forest">Impact</span>
-                    <span class="block text-xs font-semibold text-charcoal leading-tight">500+ Lives Transformed</span>
+                    <span className="block text-[8px] font-medium uppercase tracking-wider text-forest">Impact</span>
+                    <span className="block text-xs font-semibold text-charcoal leading-tight">500+ Lives Transformed</span>
                   </div>
                 </div>
               </div>

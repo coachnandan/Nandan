@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/layout/ScrollToTop'
+import MetaPixelTracker from './components/layout/MetaPixelTracker'
 
 const Home = React.lazy(() => import('./pages/Home'))
 const About = React.lazy(() => import('./pages/About'))
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <MetaPixelTracker />
       <div className="min-h-screen bg-ivory text-charcoal font-sans overflow-x-hidden">
         <Navbar />
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-ivory text-forest font-serif text-2xl">Loading...</div>}>

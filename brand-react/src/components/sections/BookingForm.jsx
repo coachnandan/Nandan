@@ -3,6 +3,7 @@ import { bookingFormData } from '../../data/siteData';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
 import { supabase } from '../../lib/supabase';
+import { trackLeadEvent } from '../../lib/metaPixel';
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ export default function BookingForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status === 'loading') return; // Prevent double submission
     setStatus('loading');
     setErrorMessage('');
 
@@ -53,6 +55,9 @@ export default function BookingForm() {
         ]);
 
       if (bookingError) throw bookingError;
+
+      // Meta Pixel Lead Event (fired ONLY after confirmed backend success)
+      trackLeadEvent(bookingId, { content_name: 'Event Booking Form' });
 
       setStatus('success');
       setFormData({ fullName: '', email: '', eventType: '', message: '' });

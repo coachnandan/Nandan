@@ -20,6 +20,7 @@ const INITIAL_STATE = {
 };
 
 import { supabase } from '../../../lib/supabase';
+import { trackLeadEvent } from '../../../lib/metaPixel';
 
 function generateRef() {
   return 'NKS-' + Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -97,6 +98,7 @@ export default function BookingWizard() {
   };
 
   const handleConfirm = async () => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     try {
       const contactId = crypto.randomUUID();
@@ -149,6 +151,9 @@ export default function BookingWizard() {
       const ref = generateRef();
       setBookingRef(ref);
       setSubmitted(true);
+
+      // Meta Pixel Lead Event (fired ONLY after confirmed backend success)
+      trackLeadEvent(appointmentId, { content_name: 'Appointment Booking Wizard' });
     } catch (err) {
       console.error('Failed to complete booking:', err);
       alert('Failed to save booking to database: ' + (err.message || 'Unknown error'));

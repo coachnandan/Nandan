@@ -3,6 +3,7 @@ import { appointmentFormData } from '../../data/siteData';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
 import { supabase } from '../../lib/supabase';
+import { trackLeadEvent } from '../../lib/metaPixel';
 
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ export default function AppointmentForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status === 'loading') return; // Prevent double submission
     setStatus('loading');
     setErrorMessage('');
 
@@ -69,6 +71,9 @@ export default function AppointmentForm() {
         ]);
 
       if (appointmentError) throw appointmentError;
+
+      // Meta Pixel Lead Event (fired ONLY after confirmed backend success)
+      trackLeadEvent(appointmentId, { content_name: 'Appointment Consultation Form' });
 
       setStatus('success');
       setFormData({ fullName: '', email: '', phone: '', city: '', profession: '', age: '', consultationType: '', consultationMode: '', preferredDate: '', preferredTime: '', message: '', agree: false });

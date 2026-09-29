@@ -22,19 +22,19 @@ export default function SuccessStories() {
         </ScrollReveal>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
         {successStoriesData.items.map((story, i) => (
-          <ScrollReveal direction="up" delay={i * 0.15} key={story.id}>
-            <div className="group relative aspect-[3/4] bg-sage rounded-[32px] overflow-hidden flex flex-col justify-end p-8 shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer">
-              {/* Optional Placeholder for a background image */}
-              <div className="absolute inset-0 bg-forest/20 group-hover:bg-forest/40 transition-colors duration-500 mix-blend-multiply"></div>
+          <ScrollReveal direction="up" delay={(i % 3) * 0.12} key={story.id}>
+            <div className="group relative aspect-[4/3.2] bg-sage rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-end p-5 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer">
+              {/* Subtle tint overlay on sage background */}
+              <div className="absolute inset-0 bg-forest/15 group-hover:bg-forest/30 transition-colors duration-500" />
               
-              <div className="relative z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="w-10 h-10 bg-ivory rounded-full flex items-center justify-center mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-forest"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <div className="relative z-10 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="w-9 h-9 bg-ivory rounded-full flex items-center justify-center mb-3 shadow text-forest opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </div>
-                <h3 className="text-2xl font-serif text-ivory mb-2 leading-tight">{story.title}</h3>
-                <p className="text-gold font-medium text-sm tracking-wide">{story.role}</p>
+                <h3 className="text-xl sm:text-2xl font-serif text-ivory mb-1 leading-snug">{story.title}</h3>
+                <p className="text-gold font-medium text-xs sm:text-sm tracking-wide">{story.role}</p>
               </div>
             </div>
           </ScrollReveal>

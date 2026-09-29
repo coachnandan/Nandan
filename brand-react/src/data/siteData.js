@@ -81,6 +81,9 @@ export const successStoriesData = {
     { id: "s1", title: "Corporate Vitality", role: "Tech Executive, 45" },
     { id: "s2", title: "Empowered Leadership", role: "Founder & CEO" },
     { id: "s3", title: "Sustainable Growth", role: "Global Director" },
+    { id: "s4", title: "Peak Energy & Focus", role: "Managing Director, 48" },
+    { id: "s5", title: "Holistic Longevity", role: "Venture Partner" },
+    { id: "s6", title: "Executive Resilience", role: "VP of Engineering" },
   ]
 };
 
@@ -325,9 +328,25 @@ export const contactHeroData = {
 };
 
 export const contactCardsData = [
-  { icon: 'Mail', title: 'Email Us', info: 'hello@nandankumar.com', href: 'mailto:hello@nandankumar.com' },
-  { icon: 'Phone', title: 'Call Directly', info: '+91 62321 38581', href: 'tel:+916232138581' },
-  { icon: 'MapPin', title: 'Visit Office', info: 'LIG 722, DD Nagar Rd\nSector 2\nDDU Nagar\nAmanaka\nRaipur\nChhattisgarh\n492010' }
+  {
+    icon: 'Mail',
+    title: 'Email Us',
+    info: 'hello@nandankumar.com',
+    href: 'mailto:hello@nandankumar.com'
+  },
+  {
+    icon: 'Phone',
+    title: 'Call Directly',
+    info: '+91 62321 38581',
+    href: 'tel:+916232138581'
+  },
+  {
+    icon: 'MapPin',
+    title: 'Visit Office',
+    info: 'LIG 722, DD Nagar Rd, Sector 2',
+    subtext: 'DDU Nagar, Amanaka, Raipur, CG 492010',
+    href: 'https://maps.google.com/?q=DDU+Nagar+Raipur+Chhattisgarh+492010'
+  }
 ];
 
 export const socialSectionData = {

@@ -193,6 +193,11 @@
         formSubmit.disabled = false;
         formSuccess.classList.add('show');
         setTimeout(() => formSuccess.classList.remove('show'), 6000);
+
+        // Meta Pixel Lead tracking (fired once upon verified submission)
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', { content_name: 'Contact Form' });
+        }
       }, 1400);
     });
 
@@ -203,6 +208,25 @@
       });
     });
   }
+
+  /* ─── META PIXEL CONTACT CLICKS (WHATSAPP & PHONE) ────── */
+  document.addEventListener('click', (e) => {
+    try {
+      const link = e.target.closest('a');
+      if (!link || typeof window.fbq !== 'function') return;
+      const href = (link.getAttribute('href') || '').trim();
+      if (href.startsWith('tel:') || link.dataset.metaContact === 'phone') {
+        window.fbq('track', 'Contact', { content_name: 'Phone Call' });
+      } else if (
+        href.includes('wa.me') ||
+        href.includes('whatsapp.com') ||
+        href.startsWith('whatsapp:') ||
+        link.dataset.metaContact === 'whatsapp'
+      ) {
+        window.fbq('track', 'Contact', { content_name: 'WhatsApp' });
+      }
+    } catch (_) {}
+  }, { passive: true });
 
   /* ─── BUTTON RIPPLE ───────────────────────────────────── */
   $$('.btn').forEach(btn => {
