@@ -8,7 +8,7 @@ export default function Certifications() {
   return (
     <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto bg-sage/20 rounded-[40px] my-12">
       <ScrollReveal direction="up" className="text-center space-y-6 mb-20">
-        <SectionEyebrow text="CREDENTIALS" className="justify-center" />
+        <SectionEyebrow text="RECOGNITION & LEADERSHIP" className="justify-center" />
         <h2 className="text-4xl lg:text-5xl font-serif text-charcoal leading-tight">
           {certificationsData.heading}
         </h2>

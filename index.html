@@ -1,26 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coach Nandan Kumar Singh</title>
-  <meta name="description" content="Sophia Laurent is a world-class Wellness Coach, Business Mentor, Entrepreneur, and Public Speaker helping high-achievers live with clarity, purpose, and presence." />
-  <meta name="keywords" content="wellness coach, business mentor, entrepreneur, public speaker, personal brand, luxury coaching" />
-  <meta property="og:title" content="Sophia Laurent — Wellness Coach &amp; Business Mentor" />
-  <meta property="og:description" content="Helping high-achievers live with clarity, purpose, and presence." />
+  <title>Coach Nandan Kumar Singh — Executive President's Team Leader &amp; Wellness Mentor</title>
+  <meta name="description" content="Coach Nandan Kumar Singh is an Executive President's Team Leader, Wellness Coach, and Business Mentor helping individuals transform health and build high-performance wellness practices." />
+  <meta name="keywords" content="Nandan Kumar Singh, wellness coach, business mentor, Executive President's Team, nutrition coach, leadership mentor, Raipur wellness" />
+  <meta property="og:title" content="Coach Nandan Kumar Singh — Wellness Coach &amp; Leadership Mentor" />
+  <meta property="og:description" content="From humble beginnings in 2008 to Executive President's Team — transforming health, community well-being, and leadership." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pine: {
+              50: '#F0FDF6',
+              100: '#DBFCE9',
+              200: '#B6F7D2',
+              300: '#7CEFB4',
+              400: '#3DDE91',
+              500: '#14C573',
+              600: '#0AA35C',
+              700: '#0B7F49',
+              800: '#0D643C',
+              900: '#0D472D',
+              950: '#072E1C'
+            },
+            forest: {
+              DEFAULT: '#0A261E',
+              deep: '#061D17',
+              surface: '#0E362B'
+            },
+            mint: {
+              soft: '#EAF7EE',
+              glow: '#A7F3D0',
+              vibrant: '#34D399'
+            },
+            ink: {
+              900: '#0A0F1D',
+              800: '#111827',
+              600: '#4B5563',
+              500: '#64748B',
+              400: '#94A3B8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            editorial: ['"Newsreader"', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            'glow-pine': '0 20px 40px -15px rgba(10, 38, 30, 0.28)',
+            'floating-badge': '0 16px 36px -8px rgba(10, 38, 30, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04)',
+            'elevated': '0 25px 60px -20px rgba(7, 46, 28, 0.15)'
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.7', transform: 'scale(1.03)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .orbit-ring {
+      border-radius: 9999px;
+      position: absolute;
+      pointer-events: none;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+    }
+    .hero-bg-mesh {
+      background-image: 
+        radial-gradient(at 90% 12%, rgba(20, 197, 115, 0.08) 0px, transparent 50%),
+        radial-gradient(at 10% 80%, rgba(10, 38, 30, 0.04) 0px, transparent 40%),
+        radial-gradient(at 50% 50%, rgba(240, 253, 246, 0.5) 0px, transparent 100%);
+    }
+  </style>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="hero-bg-mesh">
 
   <!-- NAVIGATION -->
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="#home" class="nav__logo" aria-label="Sophia Laurent Home">
-        <span class="nav__logo-name">Sophia Laurent</span>
+      <a href="#home" class="nav__logo" aria-label="Coach Nandan Kumar Singh Home">
+        <span class="nav__logo-name">Nandan Kumar Singh</span>
         <span class="nav__logo-title">Wellness &amp; Leadership</span>
       </a>
       <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -38,72 +123,166 @@
   </nav>
   <div class="nav__overlay" id="navOverlay"></div>
 
-  <!-- HERO -->
-  <section class="hero" id="home" aria-label="Hero">
-    <div class="hero__grid">
-      <div class="hero__content reveal-left">
-        <div class="hero__eyebrow">
-          <span class="eyebrow-line"></span>
-          <span class="eyebrow-text">Wellness · Entrepreneurship · Leadership</span>
+  <!-- HERO MAIN SECTION -->
+  <section id="home" class="w-full relative z-10 py-12 lg:py-20 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto flex items-center min-h-[88vh]" data-purpose="hero-main-content">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center w-full">
+      
+      <!-- LEFT COLUMN: Refined Editorial Pitch (High Contrast Light & Serif Mix) -->
+      <div class="lg:col-span-7 flex flex-col justify-center max-w-2xl" data-purpose="hero-pitch-column">
+        
+        <!-- Status / Eyebrow Pill -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 border border-amber-300/40 shadow-sm backdrop-blur-md w-fit mb-7 group hover:border-amber-400/60 transition-colors">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span class="text-[11px] font-medium tracking-[0.2em] uppercase text-forest-800">Executive President's Team Leader</span>
         </div>
-        <h1 class="hero__heading">
-          Live with<br />
-          <em>Clarity.</em><br />
-          Lead with<br />
-          Purpose.
+
+        <!-- Refined Editorial Headline: Elegant Font Weight Mix ("Not Only Bold") -->
+        <h1 class="text-4xl sm:text-5xl lg:text-[4.25rem] font-light tracking-[-0.02em] text-ink-900 leading-[1.15] mb-7">
+          A Journey of <br class="hidden sm:block">
+          <span class="font-serif italic font-normal text-pine-800 text-[1.1em]">Wellness</span>, 
+          <span class="font-serif italic font-normal text-amber-700 text-[1.1em]">Purpose</span> &amp; 
+          <span class="font-serif italic font-normal text-pine-900 text-[1.1em]">Leadership</span> <br class="hidden sm:block">
+          for Over <span class="font-serif italic font-normal text-forest underline decoration-amber-400/80 underline-offset-8 decoration-1">15 Years</span>.
         </h1>
-        <p class="hero__subtext">
-          I guide visionary women and executives to unlock their highest potential — through holistic wellness, mindful leadership, and bold entrepreneurship.
+
+        <!-- Subheading -->
+        <p class="text-base sm:text-lg text-ink-600 font-light leading-relaxed max-w-xl mb-10">
+          Starting in 2008 with ₹15,000/month to qualifying as Executive President's Team — empowering individuals and leaders to achieve physical vitality and sustainable success.
         </p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary" id="heroCTA">Book a Session</a>
-          <a href="#about" class="btn btn--ghost" id="heroLearnMore">
-            <span>Discover More</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4 sm:gap-6 mb-12" data-purpose="hero-call-to-actions">
+          <a class="group inline-flex items-center justify-center px-8 py-4 rounded-full bg-forest text-white font-medium text-sm sm:text-base tracking-wide shadow-glow-pine hover:bg-forest-surface hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 ring-1 ring-amber-400/30" href="#contact">
+            Book Appointment
+            <svg class="w-4 h-4 ml-2.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="5" x2="19" y1="12" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
+          <a class="group inline-flex items-center justify-center px-7 py-4 rounded-full glass-pill text-ink-900 font-medium text-sm sm:text-base shadow-sm hover:shadow-md hover:bg-white transition-all duration-300" href="#journey">
+            Explore My Story
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-pine-100 group-hover:bg-pine-200 text-pine-900 ml-2.5 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+          </a>
         </div>
-        <div class="hero__stats">
-          <div class="stat">
-            <span class="stat__number">500+</span>
-            <span class="stat__label">Lives Transformed</span>
+
+        <!-- Metric Badges Row -->
+        <div class="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-slate-200/80 max-w-lg" data-purpose="social-proof-metrics">
+          <div>
+            <div class="text-3xl sm:text-4xl font-serif font-normal text-forest">15<span class="text-amber-600 font-sans font-light">+</span></div>
+            <div class="text-[10px] font-medium text-ink-500 mt-1 uppercase tracking-[0.16em]">Years Experience</div>
           </div>
-          <div class="stat__divider"></div>
-          <div class="stat">
-            <span class="stat__number">12+</span>
-            <span class="stat__label">Years of Mastery</span>
+          <div>
+            <div class="text-3xl sm:text-4xl font-serif font-normal text-forest">500<span class="text-amber-600 font-sans font-light">+</span></div>
+            <div class="text-[10px] font-medium text-ink-500 mt-1 uppercase tracking-[0.16em]">Lives Impacted</div>
           </div>
-          <div class="stat__divider"></div>
-          <div class="stat">
-            <span class="stat__number">40+</span>
-            <span class="stat__label">Global Events</span>
+          <div>
+            <div class="text-3xl sm:text-4xl font-serif font-normal text-forest">100<span class="text-amber-600 font-sans font-light">+</span></div>
+            <div class="text-[10px] font-medium text-ink-500 mt-1 uppercase tracking-[0.16em]">Events Conducted</div>
           </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Luxury Circular Orbital Showcase -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end relative py-6" data-purpose="hero-portrait-showcase">
+        <div class="relative w-[320px] sm:w-[420px] md:w-[460px] lg:w-[480px] aspect-square flex items-center justify-center">
+          
+          <!-- Atmospheric Ambient Glow -->
+          <div class="absolute w-96 h-96 rounded-full bg-gradient-to-tr from-emerald-400/20 via-amber-200/25 to-teal-400/20 filter blur-3xl -z-10 animate-pulse-subtle"></div>
+          
+          <!-- Outer Orbital Ring 1: Champagne Gold Spun Halo -->
+          <div class="orbit-ring w-[114%] h-[114%] border border-amber-300/40 rounded-full animate-[spin_60s_linear_infinite_reverse]"></div>
+
+          <!-- Outer Orbital Ring 2: Emerald Dashed Accent -->
+          <div class="orbit-ring w-[106%] h-[106%] border border-dashed border-pine-600/30 rounded-full animate-[spin_40s_linear_infinite]"></div>
+
+          <!-- Primary Circular Image Frame -->
+          <div class="relative w-full h-full rounded-full overflow-hidden border-[8px] border-white shadow-elevated bg-slate-100 group ring-1 ring-amber-400/20">
+            <img 
+              src="images/nandan_hero_blue.png" 
+              alt="Coach Nandan Kumar Singh — High Performance Coach" 
+              class="w-full h-full object-cover object-top scale-110 origin-top group-hover:scale-115 transition-transform duration-700 ease-out"
+              style="object-position: center top;"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-forest/30 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+          </div>
+
+          <!-- REVOLVING ORBITAL CONTAINER FOR THE 3 TITLE CARDS -->
+          <div class="absolute inset-0 pointer-events-none z-20 animate-[spin_35s_linear_infinite]">
+            
+            <!-- ORBIT CARD 1: Top / Recognition -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 pointer-events-auto">
+              <div class="animate-[spin_35s_linear_infinite_reverse] glass-pill px-4 py-2.5 rounded-2xl shadow-floating-badge flex items-center gap-3 hover:scale-105 transition-transform cursor-default">
+                <div class="w-8 h-8 rounded-xl bg-forest flex items-center justify-center text-white shadow-md">
+                  <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                  </svg>
+                </div>
+                <div class="pr-1 text-left whitespace-nowrap">
+                  <span class="block text-[8px] font-medium uppercase tracking-wider text-amber-800">Recognition</span>
+                  <span class="block text-xs font-semibold text-ink-900 leading-tight">Executive President's Team</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ORBIT CARD 2: Bottom-Left / Mentorship -->
+            <div class="absolute bottom-4 -left-6 pointer-events-auto">
+              <div class="animate-[spin_35s_linear_infinite_reverse] glass-pill px-4 py-2.5 rounded-2xl shadow-floating-badge flex items-center gap-3 hover:scale-105 transition-transform cursor-default">
+                <div class="w-8 h-8 rounded-xl bg-forest flex items-center justify-center text-white shadow-md">
+                  <svg class="w-4 h-4 text-mint-vibrant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                    <rect height="14" rx="2" width="20" x="2" y="7"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <div class="pr-1 text-left whitespace-nowrap">
+                  <span class="block text-[8px] font-medium uppercase tracking-wider text-pine-800">Mentorship</span>
+                  <span class="block text-xs font-semibold text-ink-900 leading-tight">15+ Years Leadership</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ORBIT CARD 3: Bottom-Right / Impact -->
+            <div class="absolute bottom-4 -right-6 pointer-events-auto">
+              <div class="animate-[spin_35s_linear_infinite_reverse] glass-pill px-4 py-2.5 rounded-2xl shadow-floating-badge flex items-center gap-3 hover:scale-105 transition-transform cursor-default">
+                <div class="w-8 h-8 rounded-xl bg-forest flex items-center justify-center text-white shadow-md">
+                  <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+                <div class="pr-1 text-left whitespace-nowrap">
+                  <span class="block text-[8px] font-medium uppercase tracking-wider text-pine-800">Impact</span>
+                  <span class="block text-xs font-semibold text-ink-900 leading-tight">500+ Lives Transformed</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
-      <div class="hero__image-wrap reveal-right">
-        <div class="hero__image-frame">
-          <img src="images/hero_portrait.png" alt="Sophia Laurent — Wellness Coach and Entrepreneur" class="hero__image" loading="eager" />
-          <div class="hero__image-badge">
-            <svg class="badge__ring" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-              <circle cx="60" cy="60" r="54" stroke="#C7A56A" stroke-width="1" stroke-dasharray="4 6"/>
-            </svg>
-            <div class="badge__content">
-              <span class="badge__line1">As Seen</span>
-              <span class="badge__line2">In Forbes &amp;</span>
-              <span class="badge__line3">Vogue</span>
+
+    </div>
+  </section>
+
+          <!-- FLOATING GLASS CARD 3: Bottom Right - Transformation -->
+          <div class="absolute -right-2 sm:-right-4 bottom-[15%] glass-pill p-3 sm:p-4 rounded-2xl shadow-floating-badge flex items-center gap-3 animate-float-slow z-20 hover:scale-105 transition-all duration-300 cursor-default">
+            <div class="w-10 h-10 rounded-xl bg-forest flex items-center justify-center text-white shadow-md">
+              <svg class="w-5 h-5 text-mint-vibrant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <div class="hidden sm:block pr-1 text-left">
+              <span class="block text-[10px] font-bold uppercase tracking-wider text-pine-800">Impact</span>
+              <span class="block text-xs font-extrabold text-ink-900 leading-tight">500+ Lives Transformed</span>
             </div>
           </div>
-        </div>
-        <div class="hero__image-tag">
-          <span>✦</span>
-          <span>Transformational Mentor</span>
+
         </div>
       </div>
-    </div>
-    <div class="hero__scroll-indicator" aria-hidden="true">
-      <span class="scroll-line"></span>
-      <span class="scroll-text">Scroll</span>
+
     </div>
   </section>
 
@@ -112,60 +291,60 @@
     <div class="marquee-track">
       <span>Wellness Coaching</span><span class="marquee-dot">✦</span>
       <span>Business Mentorship</span><span class="marquee-dot">✦</span>
-      <span>Public Speaking</span><span class="marquee-dot">✦</span>
-      <span>Entrepreneurship</span><span class="marquee-dot">✦</span>
-      <span>Mindful Leadership</span><span class="marquee-dot">✦</span>
+      <span>Executive President's Team</span><span class="marquee-dot">✦</span>
+      <span>Leadership Development</span><span class="marquee-dot">✦</span>
+      <span>Nutrition Education</span><span class="marquee-dot">✦</span>
       <span>Personal Transformation</span><span class="marquee-dot">✦</span>
       <span>Wellness Coaching</span><span class="marquee-dot">✦</span>
       <span>Business Mentorship</span><span class="marquee-dot">✦</span>
-      <span>Public Speaking</span><span class="marquee-dot">✦</span>
-      <span>Entrepreneurship</span><span class="marquee-dot">✦</span>
-      <span>Mindful Leadership</span><span class="marquee-dot">✦</span>
+      <span>Executive President's Team</span><span class="marquee-dot">✦</span>
+      <span>Leadership Development</span><span class="marquee-dot">✦</span>
+      <span>Nutrition Education</span><span class="marquee-dot">✦</span>
       <span>Personal Transformation</span><span class="marquee-dot">✦</span>
     </div>
   </div>
 
   <!-- ABOUT -->
-  <section class="about" id="about" aria-label="About Sophia">
+  <section class="about" id="about" aria-label="About Coach Nandan">
     <div class="container">
       <div class="about__grid">
         <div class="about__image-col reveal-left">
           <div class="about__image-wrap">
-            <img src="images/about_portrait.png" alt="Sophia Laurent in her studio" class="about__image" loading="lazy" />
+            <img src="images/about_portrait.png" alt="Coach Nandan Kumar Singh" class="about__image" loading="lazy" />
             <div class="about__image-accent"></div>
           </div>
           <div class="about__floating-card">
             <div class="floating-card__icon">✦</div>
-            <p class="floating-card__text">"The most powerful investment you'll ever make is in yourself."</p>
-            <span class="floating-card__author">— Sophia Laurent</span>
+            <p class="floating-card__text">"When the right guidance, strong belief, and consistent effort come together, no beginning is ever too small."</p>
+            <span class="floating-card__author">— Nandan Kumar Singh</span>
           </div>
         </div>
         <div class="about__content-col reveal-right">
           <div class="section-eyebrow">
             <span class="eyebrow-line"></span>
-            <span>About Sophia</span>
+            <span>About Coach Nandan</span>
           </div>
           <h2 class="section-heading">
-            Where Wellness<br />
-            Meets <em>Ambition</em>
+            Where Purpose Meets<br />
+            <em>Resilience</em>
           </h2>
           <div class="about__body">
-            <p>I'm Sophia Laurent — a certified Wellness Coach, Serial Entrepreneur, Business Mentor, and International Public Speaker. For over a decade, I've dedicated my life to helping high-achievers, executives, and visionary women build businesses and lives they truly love.</p>
-            <p>My approach blends ancient wisdom with modern strategy — creating a unique methodology that addresses the whole person: mind, body, business, and spirit. I believe that sustainable success comes only when your inner world is aligned with your outer ambitions.</p>
-            <p>Having built multiple 7-figure businesses from the ground up, I bring real-world entrepreneurial expertise alongside deep wellness philosophy. My clients don't just grow their businesses — they transform their relationship with success itself.</p>
+            <p>I started my professional journey in 2008 with a salary of ₹15,000 per month. During that period, I faced significant financial challenges, while my mother's health had also deteriorated considerably, with low energy levels and declining overall well-being. Everything changed when I met Himanshu Sir, whose guidance introduced me to the importance of nutrition and a healthy lifestyle. The positive transformation in my mother's health became the turning point that inspired me to pursue this field with passion and purpose.</p>
+            <p>Determined to learn and grow, I attended multiple training programs and, after completing the Delhi Academy Training, I made the decision to qualify as a Supervisor. Soon after, I launched my own Nutrition Center. Through continuous learning, consistent effort, and a commitment to helping others achieve better health, I progressed to Global Expansion Team, President's Team, and today, Executive President's Team.</p>
+            <p>This success is not mine alone. I am deeply grateful to my Coach Millionaire Team 7500 – Himanshu Dase &amp; Manisha Dase, mentor Chairman's Club – Pravesh Sobti &amp; Divya Sobti, heartfelt gratitude to my wonderful organization, and the Corporate Team for their unwavering support, mentorship, and belief in me. Their encouragement has played a crucial role in every step of my journey.</p>
           </div>
           <div class="about__credentials">
             <div class="credential">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 1L12.39 6.26L18 7.27L14 11.14L14.76 17L10 14.27L5.24 17L6 11.14L2 7.27L7.61 6.26L10 1Z" stroke="#C7A56A" stroke-width="1.5" fill="none"/></svg>
-              <span>ICF-Certified Master Coach</span>
+              <span>Executive President's Team</span>
             </div>
             <div class="credential">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 1L12.39 6.26L18 7.27L14 11.14L14.76 17L10 14.27L5.24 17L6 11.14L2 7.27L7.61 6.26L10 1Z" stroke="#C7A56A" stroke-width="1.5" fill="none"/></svg>
-              <span>Harvard Executive Education Alumni</span>
+              <span>Certified Wellness &amp; Business Coach</span>
             </div>
             <div class="credential">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 1L12.39 6.26L18 7.27L14 11.14L14.76 17L10 14.27L5.24 17L6 11.14L2 7.27L7.61 6.26L10 1Z" stroke="#C7A56A" stroke-width="1.5" fill="none"/></svg>
-              <span>Forbes 30 Under 30 — Wellness</span>
+              <span>15+ Years of Transformation Leadership</span>
             </div>
           </div>
           <a href="#contact" class="btn btn--primary" id="aboutCTA">Work With Me</a>
@@ -180,13 +359,13 @@
       <div class="section-header reveal-up">
         <div class="section-eyebrow">
           <span class="eyebrow-line"></span>
-          <span>What I Offer</span>
+          <span>What We Offer</span>
         </div>
         <h2 class="section-heading">
           Curated Pathways<br />to <em>Transformation</em>
         </h2>
         <p class="section-subtext">
-          Each offering is thoughtfully designed to meet you exactly where you are — and guide you toward where you're meant to be.
+          Comprehensive pathways designed to optimize health, elevate leadership, and build sustainable wellness practices.
         </p>
       </div>
       <div class="services__grid">
@@ -199,7 +378,7 @@
           </div>
           <span class="service-card__number">01</span>
           <h3 class="service-card__title">Wellness Coaching</h3>
-          <p class="service-card__desc">A holistic, deeply personal journey to restore vitality, balance, and inner alignment through bespoke wellness protocols.</p>
+          <p class="service-card__desc">Personalized nutrition protocols, energy restoration, and daily vitality systems tailored to your unique lifestyle goals.</p>
           <a href="#contact" class="service-card__link" id="wellnessLink">Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
         <article class="service-card reveal-up" id="serviceMentoring" style="--delay:0.1s">
@@ -212,7 +391,7 @@
           </div>
           <span class="service-card__number">02</span>
           <h3 class="service-card__title">Business Mentorship</h3>
-          <p class="service-card__desc">Strategic one-on-one mentoring to scale your vision, build sustainable systems, and lead your enterprise with confidence.</p>
+          <p class="service-card__desc">Scalable leadership strategies and one-on-one mentorship to build an independent wellness business from supervisor to top tiers.</p>
           <a href="#contact" class="service-card__link" id="mentoringLink">Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
         <article class="service-card reveal-up" id="serviceEntrepreneur" style="--delay:0.2s">
@@ -222,8 +401,8 @@
             </svg>
           </div>
           <span class="service-card__number">03</span>
-          <h3 class="service-card__title">Entrepreneurship</h3>
-          <p class="service-card__desc">From idea to empire — I help you build, launch, and grow purpose-led businesses that create lasting impact and wealth.</p>
+          <h3 class="service-card__title">Nutrition Centers</h3>
+          <p class="service-card__desc">Building local nutrition centers and wellness communities that educate, inspire, and foster long-term active healthy lifestyles.</p>
           <a href="#contact" class="service-card__link" id="entrepreneurLink">Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
         <article class="service-card reveal-up" id="serviceSpeaking" style="--delay:0.3s">
@@ -234,8 +413,8 @@
             </svg>
           </div>
           <span class="service-card__number">04</span>
-          <h3 class="service-card__title">Public Speaking</h3>
-          <p class="service-card__desc">Keynote speeches and panel moderation for corporate events, summits, and global conferences on wellness, leadership, and success.</p>
+          <h3 class="service-card__title">Events &amp; Keynotes</h3>
+          <p class="service-card__desc">Keynote presentations, associate development retreats, and leadership seminars focused on mindset, discipline, and success.</p>
           <a href="#contact" class="service-card__link" id="speakingLink">Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
       </div>
@@ -248,23 +427,23 @@
       <div class="philosophy__content reveal-up">
         <div class="section-eyebrow center">
           <span class="eyebrow-line"></span>
-          <span>My Philosophy</span>
+          <span>My Core Philosophy</span>
           <span class="eyebrow-line"></span>
         </div>
         <blockquote class="philosophy__quote">
-          "True leadership begins within.<br />
-          When you heal yourself,<br />
-          you <em>heal your business</em>,<br />
-          your relationships,<br />
-          and your world."
+          "When the right guidance,<br />
+          strong belief, and<br />
+          <em>consistent effort</em><br />
+          come together,<br />
+          no beginning is ever too small."
         </blockquote>
-        <cite class="philosophy__cite">— Sophia Laurent</cite>
+        <cite class="philosophy__cite">— Coach Nandan Kumar Singh</cite>
       </div>
     </div>
   </section>
 
   <!-- JOURNEY -->
-  <section class="journey" id="journey" aria-label="Sophia's Journey">
+  <section class="journey" id="journey" aria-label="Coach Nandan's Journey">
     <div class="container">
       <div class="section-header reveal-up">
         <div class="section-eyebrow">
@@ -273,52 +452,52 @@
         </div>
         <h2 class="section-heading">
           A Path Built on<br />
-          <em>Experience &amp; Excellence</em>
+          <em>Belief &amp; Consistent Effort</em>
         </h2>
       </div>
       <div class="journey__layout">
         <div class="journey__image-col">
           <div class="journey__image-wrap reveal-left">
-            <img src="images/speaking_image.png" alt="Sophia speaking at a global conference" class="journey__image" loading="lazy" />
+            <img src="images/nandan_stage.jpg" alt="Coach Nandan Kumar Singh on stage" class="journey__image" loading="lazy" />
           </div>
           <div class="journey__image-wrap journey__image-wrap--small reveal-left" style="--delay:0.2s">
-            <img src="images/mentoring_image.png" alt="Sophia in a mentoring session" class="journey__image" loading="lazy" />
+            <img src="images/mentoring_image.png" alt="Coach Nandan in a mentoring session" class="journey__image" loading="lazy" />
           </div>
         </div>
         <div class="journey__timeline reveal-right">
-          <div class="timeline-item" id="timeline2012">
-            <div class="timeline-item__year">2012</div>
+          <div class="timeline-item" id="timeline2008">
+            <div class="timeline-item__year">2008</div>
             <div class="timeline-item__body">
-              <h3 class="timeline-item__title">The Beginning</h3>
-              <p class="timeline-item__text">Started as a certified yoga and mindfulness instructor, working with burnout professionals in London. Discovered the intersection of wellness and business performance.</p>
+              <h3 class="timeline-item__title">The Humble Start &amp; Turning Point</h3>
+              <p class="timeline-item__text">Began professional journey earning ₹15,000/month amid financial struggles. Meeting Coach Himanshu Sir introduced nutrition that transformed his mother's health, igniting a lifelong purpose.</p>
+            </div>
+          </div>
+          <div class="timeline-item" id="timeline2009">
+            <div class="timeline-item__year">2009</div>
+            <div class="timeline-item__body">
+              <h3 class="timeline-item__title">Supervisor &amp; First Nutrition Center</h3>
+              <p class="timeline-item__text">Completed Delhi Academy Training, qualified as a Supervisor, and opened his first Nutrition Center to bring structured health solutions to the local community.</p>
             </div>
           </div>
           <div class="timeline-item" id="timeline2015">
             <div class="timeline-item__year">2015</div>
             <div class="timeline-item__body">
-              <h3 class="timeline-item__title">First Venture</h3>
-              <p class="timeline-item__text">Founded her first wellness brand, scaling it to £2M in revenue within 18 months. Recognized by Forbes as a rising voice in holistic entrepreneurship.</p>
-            </div>
-          </div>
-          <div class="timeline-item" id="timeline2018">
-            <div class="timeline-item__year">2018</div>
-            <div class="timeline-item__body">
-              <h3 class="timeline-item__title">Going Global</h3>
-              <p class="timeline-item__text">Launched the acclaimed "Lead From Within" program, reaching executives across 20+ countries. Delivered keynotes at TEDx, Davos Fringe, and the Global Women's Summit.</p>
+              <h3 class="timeline-item__title">Global Expansion Team (GET)</h3>
+              <p class="timeline-item__text">Expanded mentorship and community programs, progressing to Global Expansion Team through dedicated leadership and team development.</p>
             </div>
           </div>
           <div class="timeline-item" id="timeline2021">
             <div class="timeline-item__year">2021</div>
             <div class="timeline-item__body">
-              <h3 class="timeline-item__title">The Academy</h3>
-              <p class="timeline-item__text">Founded the Sophia Laurent Academy — an online platform for elite coaching and mentorship programs. Enrolled over 500 high-achievers across 30 countries.</p>
+              <h3 class="timeline-item__title">President's Team Leadership</h3>
+              <p class="timeline-item__text">Achieved President's Team status, empowering hundreds of independent wellness associates across regions to build sustainable businesses.</p>
             </div>
           </div>
-          <div class="timeline-item" id="timeline2024">
-            <div class="timeline-item__year">2024</div>
+          <div class="timeline-item" id="timeline2026">
+            <div class="timeline-item__year">2026</div>
             <div class="timeline-item__body">
-              <h3 class="timeline-item__title">The Next Chapter</h3>
-              <p class="timeline-item__text">Published her bestselling book "The Quiet Power". Continues to mentor, speak, and inspire from her studios in London, Dubai, and Singapore.</p>
+              <h3 class="timeline-item__title">Executive President's Team</h3>
+              <p class="timeline-item__text">Qualified as Executive President's Team, conducting 100+ events, mentoring high-level leaders, and continuing to impact thousands of lives worldwide.</p>
             </div>
           </div>
         </div>
@@ -327,69 +506,67 @@
   </section>
 
   <!-- PRESS -->
-  <section class="press" id="press" aria-label="Press and media">
+  <section class="press" id="press" aria-label="Recognition & Network">
     <div class="container">
       <div class="press__inner reveal-up">
-        <p class="press__label">As Featured In</p>
+        <p class="press__label">Leadership Recognition &amp; Tiers</p>
         <div class="press__logos">
-          <span class="press__logo" id="logoForbes">Forbes</span>
+          <span class="press__logo" id="logoExec">Executive President's Team</span>
           <span class="press__divider">·</span>
-          <span class="press__logo" id="logoVogue">Vogue</span>
+          <span class="press__logo" id="logoPres">President's Team</span>
           <span class="press__divider">·</span>
-          <span class="press__logo" id="logoHBR">Harvard Business Review</span>
+          <span class="press__logo" id="logoGET">Global Expansion Team</span>
           <span class="press__divider">·</span>
-          <span class="press__logo" id="logoFT">Financial Times</span>
+          <span class="press__logo" id="logoMillionaire">Millionaire Team 7500</span>
           <span class="press__divider">·</span>
-          <span class="press__logo" id="logoTED">TEDx</span>
+          <span class="press__logo" id="logoChairman">Chairman's Club</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials" aria-label="Client testimonials">
+  <section class="testimonials" id="testimonials" aria-label="Mentorship and Gratitude">
     <div class="container">
       <div class="section-header reveal-up">
         <div class="section-eyebrow">
           <span class="eyebrow-line"></span>
-          <span>Voices of Transformation</span>
+          <span>Mentorship &amp; Gratitude</span>
         </div>
         <h2 class="section-heading">
-          What My Clients<br />
-          <em>Experience</em>
-        </h2>
-      </div>
+          Gratitude for<br />
+          <em>Mentors &amp; Leadership</em>
       <div class="testimonials__grid">
         <article class="testimonial-card reveal-up" id="testimonial1" style="--delay:0s">
           <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-          <blockquote class="testimonial-card__quote">"Working with Sophia completely transformed how I lead my company. Her ability to blend deep wellness practices with sharp business strategy is truly unparalleled. I scaled from £500K to £3M in one year."</blockquote>
+          <blockquote class="testimonial-card__quote">"Everything changed when I met Himanshu Sir, whose guidance introduced me to the importance of nutrition and a healthy lifestyle. The positive transformation in my mother's health became the turning point of my life."</blockquote>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">A</div>
+            <div class="testimonial-card__avatar" aria-hidden="true">H</div>
             <div>
-              <strong class="testimonial-card__name">Alexandra Chen</strong>
-              <span class="testimonial-card__role">CEO, Luminary Ventures · Dubai</span>
+              <strong class="testimonial-card__name">Himanshu Dase &amp; Manisha Dase</strong>
+              <span class="testimonial-card__role">Millionaire Team 7500 · Coaches &amp; Mentors</span>
             </div>
           </div>
         </article>
         <article class="testimonial-card reveal-up" id="testimonial2" style="--delay:0.15s">
           <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-          <blockquote class="testimonial-card__quote">"Sophia's keynote at our annual leadership summit was the most powerful talk we've ever hosted. Every leader in the room was visibly moved. She has a rare gift of turning insight into transformation."</blockquote>
+          <blockquote class="testimonial-card__quote">"Deepest gratitude to my mentors whose vision, wisdom, and leadership showed me what is possible when right guidance, strong belief, and consistent effort come together."</blockquote>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">M</div>
+            <div class="testimonial-card__avatar" aria-hidden="true">P</div>
             <div>
-              <strong class="testimonial-card__name">Marcus Hartley</strong>
-              <span class="testimonial-card__role">Director, Global Leadership Forum · London</span>
+              <strong class="testimonial-card__name">Pravesh Sobti &amp; Divya Sobti</strong>
+              <span class="testimonial-card__role">Chairman's Club · Mentors</span>
             </div>
           </div>
         </article>
         <article class="testimonial-card reveal-up" id="testimonial3" style="--delay:0.3s">
           <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-          <blockquote class="testimonial-card__quote">"I came to Sophia burnt out, overwhelmed, and questioning everything. Eight months later, I launched my second business, restored my health, and genuinely love my life again. She's extraordinary."</blockquote>
+          <blockquote class="testimonial-card__quote">"Heartfelt gratitude to my wonderful organization and the Corporate Team for their unwavering support, mentorship, and belief in me at every step of this extraordinary journey."</blockquote>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">P</div>
+            <div class="testimonial-card__avatar" aria-hidden="true">C</div>
             <div>
-              <strong class="testimonial-card__name">Priya Sharma</strong>
-              <span class="testimonial-card__role">Founder, The Bloom Collective · Singapore</span>
+              <strong class="testimonial-card__name">Corporate &amp; Organization Team</strong>
+              <span class="testimonial-card__role">Herbalife India Leadership &amp; Network</span>
             </div>
           </div>
         </article>
@@ -403,85 +580,85 @@
       <div class="section-header reveal-up">
         <div class="section-eyebrow">
           <span class="eyebrow-line"></span>
-          <span>Upcoming Events</span>
+          <span>Events &amp; Workshops</span>
         </div>
         <h2 class="section-heading">
-          Gather. Grow.<br />
+          Gather. Learn.<br />
           <em>Transform Together.</em>
         </h2>
-        <p class="section-subtext">Join Sophia at intimate retreats, global summits, and live masterclasses designed to catalyse deep change.</p>
+        <p class="section-subtext">Join Coach Nandan at live leadership summits, associate development retreats, and wellness workshops.</p>
       </div>
       <div class="events__list">
         <article class="event-item reveal-up" id="event1">
           <div class="event-item__date">
-            <span class="event-item__month">SEP</span>
+            <span class="event-item__month">OCT</span>
             <span class="event-item__day">14</span>
           </div>
           <div class="event-item__info">
-            <span class="event-item__type">Keynote · London</span>
-            <h3 class="event-item__title">The Quiet Power: Leading From Within</h3>
+            <span class="event-item__type">Retreat · Jaipur</span>
+            <h3 class="event-item__title">Associate Development Retreat</h3>
             <p class="event-item__location">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1C4.79 1 3 2.79 3 5C3 8.5 7 13 7 13C7 13 11 8.5 11 5C11 2.79 9.21 1 7 1ZM7 6.5C6.17 6.5 5.5 5.83 5.5 5C5.5 4.17 6.17 3.5 7 3.5C7.83 3.5 8.5 4.17 8.5 5C8.5 5.83 7.83 6.5 7 6.5Z" fill="#C7A56A"/></svg>
-              The Royal Institution, London
+              Jaipur, Rajasthan
             </p>
           </div>
           <div class="event-item__action">
-            <span class="event-item__spots">12 seats left</span>
-            <a href="#contact" class="btn btn--primary btn--sm" id="event1CTA">Reserve Seat</a>
+            <span class="event-item__spots">Registration Open</span>
+            <a href="#contact" class="btn btn--primary btn--sm" id="event1CTA">Book Seat</a>
           </div>
         </article>
         <article class="event-item reveal-up" id="event2">
           <div class="event-item__date">
-            <span class="event-item__month">OCT</span>
-            <span class="event-item__day">03</span>
+            <span class="event-item__month">NOV</span>
+            <span class="event-item__day">05</span>
           </div>
           <div class="event-item__info">
-            <span class="event-item__type">Retreat · Bali</span>
-            <h3 class="event-item__title">Renewal Retreat: Reclaim Your Vitality</h3>
+            <span class="event-item__type">Leadership Summit</span>
+            <h3 class="event-item__title">President's Team Leadership Conference</h3>
             <p class="event-item__location">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1C4.79 1 3 2.79 3 5C3 8.5 7 13 7 13C7 13 11 8.5 11 5C11 2.79 9.21 1 7 1ZM7 6.5C6.17 6.5 5.5 5.83 5.5 5C5.5 4.17 6.17 3.5 7 3.5C7.83 3.5 8.5 4.17 8.5 5C8.5 5.83 7.83 6.5 7 6.5Z" fill="#C7A56A"/></svg>
-              Amandari Resort, Ubud, Bali
+              New Delhi
             </p>
           </div>
           <div class="event-item__action">
-            <span class="event-item__spots">5 seats left</span>
-            <a href="#contact" class="btn btn--primary btn--sm" id="event2CTA">Reserve Seat</a>
+            <span class="event-item__spots">Qualification Required</span>
+            <a href="#contact" class="btn btn--primary btn--sm" id="event2CTA">Apply Now</a>
           </div>
         </article>
         <article class="event-item reveal-up" id="event3">
           <div class="event-item__date">
             <span class="event-item__month">NOV</span>
-            <span class="event-item__day">18</span>
+            <span class="event-item__day">22</span>
           </div>
           <div class="event-item__info">
-            <span class="event-item__type">Masterclass · Online</span>
-            <h3 class="event-item__title">Scale Your Vision: Building a 7-Figure Brand</h3>
+            <span class="event-item__type">Webinar · Online</span>
+            <h3 class="event-item__title">High-Performance Wellness &amp; Nutrition Masterclass</h3>
             <p class="event-item__location">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1C4.79 1 3 2.79 3 5C3 8.5 7 13 7 13C7 13 11 8.5 11 5C11 2.79 9.21 1 7 1ZM7 6.5C6.17 6.5 5.5 5.83 5.5 5C5.5 4.17 6.17 3.5 7 3.5C7.83 3.5 8.5 4.17 8.5 5C8.5 5.83 7.83 6.5 7 6.5Z" fill="#C7A56A"/></svg>
-              Live Online — Global Access
+              Live Online Session
             </p>
           </div>
           <div class="event-item__action">
-            <span class="event-item__spots">Open enrolment</span>
-            <a href="#contact" class="btn btn--primary btn--sm" id="event3CTA">Enrol Now</a>
+            <span class="event-item__spots">Free Registration</span>
+            <a href="#contact" class="btn btn--primary btn--sm" id="event3CTA">Register Free</a>
           </div>
         </article>
         <article class="event-item reveal-up" id="event4">
           <div class="event-item__date">
             <span class="event-item__month">DEC</span>
-            <span class="event-item__day">07</span>
+            <span class="event-item__day">10</span>
           </div>
           <div class="event-item__info">
-            <span class="event-item__type">Summit · Dubai</span>
-            <h3 class="event-item__title">Women in Leadership Global Summit 2026</h3>
+            <span class="event-item__type">Immersion · Kerala</span>
+            <h3 class="event-item__title">Kerala Wellness &amp; Leadership Tour</h3>
             <p class="event-item__location">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1C4.79 1 3 2.79 3 5C3 8.5 7 13 7 13C7 13 11 8.5 11 5C11 2.79 9.21 1 7 1ZM7 6.5C6.17 6.5 5.5 5.83 5.5 5C5.5 4.17 6.17 3.5 7 3.5C7.83 3.5 8.5 4.17 8.5 5C8.5 5.83 7.83 6.5 7 6.5Z" fill="#C7A56A"/></svg>
-              Armani Hotel, Burj Khalifa, Dubai
+              Munnar, Kerala
             </p>
           </div>
           <div class="event-item__action">
-            <span class="event-item__spots">VIP Only</span>
-            <a href="#contact" class="btn btn--primary btn--sm" id="event4CTA">Apply to Attend</a>
+            <span class="event-item__spots">Limited Seats</span>
+            <a href="#contact" class="btn btn--primary btn--sm" id="event4CTA">Join Tour</a>
           </div>
         </article>
       </div>
@@ -493,21 +670,21 @@
     <div class="cta-banner__inner reveal-up">
       <div class="section-eyebrow center">
         <span class="eyebrow-line"></span>
-        <span>Begin Your Journey</span>
+        <span>Begin Your Transformation</span>
         <span class="eyebrow-line"></span>
       </div>
       <h2 class="cta-banner__heading">
-        Your Most Extraordinary<br />
-        Life Awaits.<br />
-        <em>Let's Begin.</em>
+        No Beginning Is<br />
+        Ever Too Small.<br />
+        <em>Let's Start Today.</em>
       </h2>
-      <p class="cta-banner__subtext">Applications for private coaching are open. Limited spots available.</p>
+      <p class="cta-banner__subtext">Schedule your personalized consultation for health, leadership, or business mentorship.</p>
       <a href="#contact" class="btn btn--champagne btn--lg" id="ctaBannerBtn">Book Your Appointment</a>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact" id="contact" aria-label="Contact Sophia">
+  <section class="contact" id="contact" aria-label="Contact Coach Nandan">
     <div class="container">
       <div class="contact__grid">
         <div class="contact__info reveal-left">
@@ -519,30 +696,27 @@
             Ready to<br />
             <em>Transform?</em>
           </h2>
-          <p class="contact__desc">Whether you're seeking private coaching, a speaking engagement, or a collaboration opportunity — I'd love to connect. Complete the form and I'll be in touch within 48 hours.</p>
+          <p class="contact__desc">Whether you're looking to optimize your health, join our wellness community, or explore business mentorship — we'd love to connect. Fill out the form and our team will be in touch.</p>
           <div class="contact__details">
             <div class="contact__detail" id="contactEmail">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5H17V15H3V5Z" stroke="#C7A56A" stroke-width="1.5"/><path d="M3 5L10 11L17 5" stroke="#C7A56A" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span>hello@sophialaurent.com</span>
+              <span>hello@example.com</span>
             </div>
             <div class="contact__detail" id="contactPhone">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 3H5C4 3 3 4 3 5C3 13 7 17 15 17C16 17 17 16 17 15V13L13 12L12 14C10 13 7 10 6 8L8 7L7 3Z" stroke="#C7A56A" stroke-width="1.5"/></svg>
-              <span>+44 20 7946 0958</span>
+              <span>+91 62321 38581</span>
             </div>
             <div class="contact__detail" id="contactLocation">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2C7.24 2 5 4.24 5 7C5 11.5 10 18 10 18C10 18 15 11.5 15 7C15 4.24 12.76 2 10 2ZM10 9C8.9 9 8 8.1 8 7C8 5.9 8.9 5 10 5C11.1 5 12 5.9 12 7C12 8.1 11.1 9 10 9Z" fill="#C7A56A"/></svg>
-              <span>London · Dubai · Singapore</span>
+              <span>LIG 722, DDU Nagar, Raipur, CG 492010</span>
             </div>
           </div>
           <div class="contact__social">
-            <a href="#" class="social-link" id="socialInstagram" aria-label="Instagram">
+            <a href="https://www.instagram.com/coachnandan?utm_source=ig_web_button_share_sheet&amp;igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link" id="socialInstagram" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="13.5" cy="4.5" r="1" fill="currentColor"/></svg>
             </a>
-            <a href="#" class="social-link" id="socialLinkedIn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/nandan-kumar-7a6771413/" target="_blank" rel="noopener noreferrer" class="social-link" id="socialLinkedIn" aria-label="LinkedIn">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 8V13M6 6V6.01M9 13V10C9 8.9 9.9 8 11 8C12.1 8 13 8.9 13 10V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </a>
-            <a href="#" class="social-link" id="socialYoutube" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 7L12 9L7 11V7Z" fill="currentColor"/></svg>
             </a>
           </div>
         </div>
@@ -551,11 +725,11 @@
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Alexandra" required autocomplete="given-name" />
+                <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Your Name" required autocomplete="given-name" />
               </div>
               <div class="form-group">
                 <label class="form-label" for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Chen" required autocomplete="family-name" />
+                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Last Name" required autocomplete="family-name" />
               </div>
             </div>
             <div class="form-group">
@@ -566,16 +740,16 @@
               <label class="form-label" for="interest">I'm Interested In</label>
               <select id="interest" name="interest" class="form-input form-select" required>
                 <option value="" disabled selected>Select a service</option>
-                <option value="wellness">Private Wellness Coaching</option>
+                <option value="wellness">Health &amp; Wellness Coaching</option>
                 <option value="mentoring">Business Mentorship</option>
-                <option value="speaking">Speaking Engagement</option>
-                <option value="retreat">Retreat / Event</option>
+                <option value="speaking">Events &amp; Speaking</option>
+                <option value="nutrition-center">Nutrition Center Guidance</option>
                 <option value="other">Other</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label" for="message">Tell Me About Yourself</label>
-              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Share your current chapter and what you're hoping to achieve..." rows="5" required></textarea>
+              <label class="form-label" for="message">Your Message</label>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Share your wellness or business goals..." rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn--primary btn--full" id="formSubmit">
               Send Message
@@ -583,7 +757,7 @@
             </button>
             <div class="form-success" id="formSuccess" aria-live="polite">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#C7A56A" stroke-width="1.5"/><path d="M8 12L11 15L16 9" stroke="#C7A56A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Thank you. I'll be in touch within 48 hours.</span>
+              <span>Thank you. We will be in touch shortly.</span>
             </div>
           </form>
         </div>
@@ -596,9 +770,9 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="footer__name">Sophia Laurent</span>
-          <p class="footer__tagline">Wellness · Entrepreneurship · Leadership</p>
-          <p class="footer__copy">Helping visionaries build extraordinary lives and businesses with purpose, clarity, and grace.</p>
+          <span class="footer__name">Nandan Kumar Singh</span>
+          <p class="footer__tagline">Wellness · Mentorship · Leadership</p>
+          <p class="footer__copy">Executive President's Team Leader. Empowering individuals to transform health and build sustainable practices with purpose, belief, and consistent effort.</p>
         </div>
         <div class="footer__links-col">
           <h4 class="footer__heading">Navigate</h4>
@@ -616,28 +790,28 @@
           <h4 class="footer__heading">Services</h4>
           <ul class="footer__links" role="list">
             <li><a href="#services" class="footer__link" id="footerWellness">Wellness Coaching</a></li>
-            <li><a href="#services" class="footer__link" id="footerMentoring">Business Mentoring</a></li>
-            <li><a href="#services" class="footer__link" id="footerSpeaking">Public Speaking</a></li>
-            <li><a href="#events" class="footer__link" id="footerRetreats">Retreats</a></li>
-            <li><a href="#services" class="footer__link" id="footerAcademy">The Academy</a></li>
+            <li><a href="#services" class="footer__link" id="footerMentoring">Business Mentorship</a></li>
+            <li><a href="#services" class="footer__link" id="footerSpeaking">Nutrition Centers</a></li>
+            <li><a href="#events" class="footer__link" id="footerRetreats">Retreats &amp; Summits</a></li>
           </ul>
         </div>
         <div class="footer__links-col">
           <h4 class="footer__heading">Connect</h4>
           <ul class="footer__links" role="list">
-            <li><a href="#" class="footer__link" id="footerInstagram">Instagram</a></li>
-            <li><a href="#" class="footer__link" id="footerLinkedIn">LinkedIn</a></li>
-            <li><a href="#" class="footer__link" id="footerYoutube">YouTube</a></li>
-            <li><a href="#" class="footer__link" id="footerPodcast">Podcast</a></li>
+            <li><a href="https://www.instagram.com/coachnandan?utm_source=ig_web_button_share_sheet&amp;igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="footer__link" id="footerInstagram">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/nandan-kumar-7a6771413/" target="_blank" rel="noopener noreferrer" class="footer__link" id="footerLinkedIn">LinkedIn</a></li>
           </ul>
         </div>
       </div>
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p style="font-size:0.75rem; opacity:0.65; line-height:1.6; margin-bottom:1rem;">*Compliance &amp; Income Disclaimer: Achievements, titles, and income levels mentioned (including Executive President's Team, President's Team, and GET) represent top tier performance and are not typical. Actual earnings and progression depend on individual dedication, effort, leadership skill, and time invested. Product statements and wellness coaching are intended for lifestyle guidance, daily nutrition education, and active healthy living support; they do not diagnose, treat, cure, or prevent any medical disease.</p>
+      </div>
       <div class="footer__bottom">
-        <p class="footer__legal">© 2026 Sophia Laurent. All rights reserved.</p>
+        <p class="footer__legal">© 2026 Nandan Kumar Singh. All rights reserved.</p>
         <div class="footer__legal-links">
           <a href="#" class="footer__link" id="footerPrivacy">Privacy Policy</a>
           <span>·</span>
-          <a href="#" class="footer__link" id="footerTerms">Terms</a>
+          <a href="#" class="footer__link" id="footerTerms">Terms of Service</a>
         </div>
       </div>
     </div>

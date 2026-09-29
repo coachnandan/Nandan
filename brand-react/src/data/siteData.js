@@ -28,9 +28,9 @@ export const navData = {
 };
 
 export const heroData = {
-  eyebrow: "EXECUTIVE VITALITY COACHING",
-  heading: ["Transforming Health", "and Building Success", "for Over", "15 Years."],
-  description: "Helping individuals achieve better health, stronger leadership, and meaningful growth through proven coaching systems.",
+  eyebrow: "EXECUTIVE PRESIDENT'S TEAM LEADER",
+  heading: ["A Journey of", "Wellness, Purpose & Leadership", "for Over", "15 Years."],
+  description: "Starting in 2008 with ₹15,000/month to qualifying as Executive President's Team — empowering individuals and leaders to achieve physical vitality and sustainable success.",
   primaryCTA: { label: "Book Appointment", href: "/book-appointment" },
   secondaryCTA: { label: "Watch Success Stories", href: "#success-stories" },
   image: "/images/nandan_hero_blue.png",
@@ -85,15 +85,15 @@ export const successStoriesData = {
 };
 
 export const testimonialsData = {
-  eyebrow: "TESTIMONIALS",
-  heading: "What Leaders",
-  headingItalic: "Say",
-  subtext: "Global voices on the impact of Nandan's systems.",
-  cta: { label: "Read More Testimonials", href: "#" },
+  eyebrow: "MENTORSHIP & GRATITUDE",
+  heading: "Standing on the Shoulders",
+  headingItalic: "of Giants",
+  subtext: "Deepest gratitude to the mentors and leadership who guided every step of the journey.",
+  cta: { label: "Read Mentorship Journey", href: "/about" },
   items: [
-    { id: "t1", quote: "Nandan's approach to executive health changed my life. I've never felt more energized or focused in the boardroom.", name: "James Dalton", role: "VP of Sales, TechCorp", initial: "J" },
-    { id: "t2", quote: "A unique blend of empathy and rigorous business strategy. The 15 years of experience really show in every session.", name: "Sarah Ahmed", role: "Managing Partner, Nexus Law", initial: "S" },
-    { id: "t3", quote: "I was skeptical of health coaching for leaders, but the data-driven systems Nandan uses are undeniable.", name: "Marcus Knight", role: "COO, Energy Systems", initial: "M" },
+    { id: "t1", quote: "Everything changed when I met Himanshu Sir, whose guidance introduced me to the importance of nutrition and a healthy lifestyle. The positive transformation in my mother's health became the turning point of my life.", name: "Himanshu Dase & Manisha Dase", role: "Millionaire Team 7500 · Coaches & Mentors", initial: "H" },
+    { id: "t2", quote: "Deepest gratitude to my mentors whose vision, wisdom, and leadership showed me what is possible when right guidance, strong belief, and consistent effort come together.", name: "Pravesh Sobti & Divya Sobti", role: "Chairman's Club · Mentors", initial: "P" },
+    { id: "t3", quote: "Heartfelt gratitude to my wonderful organization and the Corporate Team for their unwavering support, mentorship, and belief in me at every step of this journey.", name: "Corporate & Organization Team", role: "Herbalife India Leadership", initial: "C" },
   ]
 };
 
@@ -186,23 +186,22 @@ export const aboutHeroData = {
 };
 
 export const aboutStoryData = {
-  heading: 'A Legacy of High Performance',
+  heading: 'Where Purpose Meets Resilience',
   paragraphs: [
-    'With over 15 years at the intersection of corporate leadership and wellness engineering, I have dedicated my career to redefining what it means to be a high performer.',
-    'My journey didn\'t start in a meditation hall, but in the high-stakes boardrooms where decisions impact thousands.',
-    'I witnessed firsthand the silent epidemic of burnout among the world\'s most brilliant minds. This sparked a decade-long quest to synthesize elite corporate strategy with cutting-edge physiological science.',
-    'Today, I empower executives to reclaim their vitality without sacrificing their professional trajectory.',
-    'My methodology is built on the principle of Executive Vitality — where professional excellence is fueled by physical, mental, and emotional well-being.'
+    'I started my professional journey in 2008 with a salary of ₹15,000 per month. During that period, I faced significant financial challenges, while my mother\'s health had also deteriorated considerably, with low energy levels and declining overall well-being. Everything changed when I met Himanshu Sir, whose guidance introduced me to the importance of nutrition and a healthy lifestyle. The positive transformation in my mother\'s health became the turning point that inspired me to pursue this field with passion and purpose.',
+    'Determined to learn and grow, I attended multiple training programs and, after completing the Delhi Academy Training, I made the decision to qualify as a Supervisor. Soon after, I launched my own Nutrition Center. Through continuous learning, consistent effort, and a commitment to helping others achieve better health, I progressed to Global Expansion Team, President\'s Team, and today, Executive President\'s Team.',
+    'This success is not mine alone. I am deeply grateful to my Coach Millionaire Team 7500 – Himanshu Dase & Manisha Dase, mentor Chairman\'s Club – Pravesh Sobti & Divya Sobti, heartfelt gratitude to my wonderful organization, and the Corporate Team for their unwavering support, mentorship, and belief in me. Their encouragement has played a crucial role in every step of my journey. "When the right guidance, strong belief, and consistent effort come together, no beginning is ever too small."'
   ]
 };
 
 export const timelineData = {
-  heading: 'Milestones & Evolution',
+  heading: 'Milestones & Progression',
   items: [
-    { year: '2024', title: 'Global Expansion', description: 'Launched the "Vital Leader" retreat series across Europe and Asia, coaching 500+ Fortune 500 executives in sustainable performance.' },
-    { year: '2018', title: 'The Pivot', description: 'Transitioned from Senior VP of Operations to full-time Performance Coaching, founding Singh Executive Consulting.' },
-    { year: '2012', title: 'Strategy Mastery', description: 'Led a $200M organizational transformation for a global tech firm, refining the "Human Capital First" framework.' },
-    { year: '2008', title: 'The Beginning', description: 'Founded first venture while confronting the physical toll of entrepreneurial burnout — the catalyst for everything that followed.' }
+    { year: '2026', title: "Executive President's Team", description: "Qualified as Executive President's Team, conducting 100+ events and mentoring wellness coaches and leaders nationally and globally." },
+    { year: '2021', title: "President's Team Leadership", description: "Achieved President's Team status, empowering hundreds of independent wellness associates across regions to build sustainable practices." },
+    { year: '2015', title: 'Global Expansion Team (GET)', description: 'Advanced to Global Expansion Team through continuous learning, team building, and community health initiatives.' },
+    { year: '2009', title: 'Supervisor & First Nutrition Center', description: 'Completed Delhi Academy Training, qualified as a Supervisor, and established his first local Nutrition Center.' },
+    { year: '2008', title: 'The Struggle & Turning Point', description: 'Began professional journey earning ₹15,000/month. Met Coach Himanshu Sir; mother\'s health transformation through nutrition inspired his lifelong purpose.' }
   ]
 };
 
@@ -215,17 +214,16 @@ export const missionVisionData = {
 };
 
 export const certificationsData = {
-  heading: 'Certifications & Global Impact',
+  heading: 'Leadership Credentials & Impact',
   stats: [
     { number: 15, suffix: '+', label: 'Years Experience' },
-    { number: 500, suffix: '+', label: 'Leaders Coached' },
-    { number: 98, suffix: '%', label: 'Retention Rate' },
-    { number: 12, suffix: '', label: 'Industry Awards' }
+    { number: 500, suffix: '+', label: 'Lives Transformed' },
+    { number: 100, suffix: '+', label: 'Events Conducted' }
   ],
   items: [
-    { title: 'ICF Master Certified Coach', description: 'Executive Leadership Focus' },
-    { title: 'Stanford Psychology', description: 'Behavioral Science Graduate' },
-    { title: 'National Board Health Coach', description: 'NBC-HWC Certified' }
+    { title: "Executive President's Team", description: "Top-Tier Leadership & Organizational Mentorship" },
+    { title: "Delhi Academy Training", description: "Graduate & Qualified Supervisor Leadership" },
+    { title: "Wellness & Business Mentor", description: "15+ Years Dedicated Community Transformation" }
   ]
 };
 
@@ -522,18 +520,18 @@ export const journeyPhotoGalleryData = {
 export const journeyData = {
   eyebrow: 'THE JOURNEY',
   heading: 'Milestones of',
-  headingItalic: 'Impact',
+  headingItalic: 'Growth & Impact',
   milestones: [
-    { id: 'j1', year: '2008', title: 'The Beginning', text: 'Started the first entrepreneurial venture while navigating the challenges of work-life balance and personal well-being.' },
-    { id: 'j2', year: '2012', title: 'Building Leadership', text: 'Led large-scale business transformation initiatives and discovered the importance of people-first leadership.' },
-    { id: 'j3', year: '2018', title: 'The Transformation', text: 'Transitioned into full-time coaching and mentoring, helping professionals achieve excellence through balanced living.' },
-    { id: 'j4', year: '2024', title: 'Global Reach', text: 'Expanded coaching programs, workshops, and events internationally while continuing to transform lives through wellness and leadership.' }
+    { id: 'j1', year: '2008', title: 'The Humble Start', text: 'Started earning ₹15,000/month. Transformed mother\'s health through nutrition guidance under Coach Himanshu Sir, sparking a lifelong purpose.' },
+    { id: 'j2', year: '2009', title: 'Supervisor & Nutrition Center', text: 'Completed Delhi Academy Training, qualified as a Supervisor, and launched his first Nutrition Center.' },
+    { id: 'j3', year: '2015', title: 'Global Expansion Team', text: 'Expanded community wellness and leadership mentoring, achieving Global Expansion Team status.' },
+    { id: 'j4', year: '2026', title: "Executive President's Team", text: "Qualified as Executive President's Team, conducting 100+ events and empowering thousands of lives through health and business mentorship." }
   ],
   cta: { label: 'View Full Journey', href: '/journey' }
 };
 
 export const journeyQuoteData = {
-  quote: '"The greatest investment any leader can make is in their own vitality."',
+  quote: '"When the right guidance, strong belief, and consistent effort come together, no beginning is ever too small."',
   author: 'Nandan Kumar Singh'
 };
 
